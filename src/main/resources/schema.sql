@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS connections (
     db_password varchar,
     display_name varchar,
     user_id BIGINT,
+    created TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS datasets (
     connection_id BIGINT,
     scheme varchar,
     table_name varchar NOT NULL,
+    created TIMESTAMP NOT NULL,
     PRIMARY KEY id,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (connection_id) REFERENCES connections(connection_id)
@@ -32,6 +34,7 @@ CREATE TABLE IF NOT EXISTS datasets (
 CREATE TABLE IF NOT EXISTS views (
     id BIGINT,
     user_id BIGINT,
+    created TIMESTAMP NOT NULL,
     PRIMARY KEY id,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
@@ -39,7 +42,8 @@ CREATE TABLE IF NOT EXISTS views (
 CREATE TABLE IF NOT EXISTS sql_queries (
     id BIGINT,
     query varchar NOT NULL,
-    user_id BIGINT
+    user_id BIGINT,
+    created TIMESTAMP NOT NULL,
     PRIMARY KEY id,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
