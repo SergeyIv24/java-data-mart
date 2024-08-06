@@ -5,6 +5,6 @@ import datamartapp.model.Connection;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ConnectionRepository extends JpaRepository <Long, Connection> {
+public interface ConnectionRepository extends JpaRepository <Connection, Long> {
 
 }

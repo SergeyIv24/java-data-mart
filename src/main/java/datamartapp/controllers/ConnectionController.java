@@ -48,7 +48,7 @@ public class ConnectionController {
     @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteConnection(@RequestHeader(value = "X-mart-conn-id") long connectionId) {
-        log.info("ConnectionController, deleteController, connectionId {}", connectionId);
+        log.info("ConnectionController, deleteConnection, connectionId {}", connectionId);
         connectionService.deleteConnection(connectionId);
     }
 }
