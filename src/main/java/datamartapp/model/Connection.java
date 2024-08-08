@@ -36,10 +36,12 @@ public class Connection {
     @NotBlank(message = "empty db_password")
     private String dbPassword;
 
+
     @Column(name = "display_name")
     @NotBlank(message = "empty display name")
     private String displayName;
 
+    @NotNull(message = "userId must exist")
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

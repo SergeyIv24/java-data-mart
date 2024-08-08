@@ -24,8 +24,8 @@ public class Dataset {
     @JoinColumn(name = "user_id")
     private User user;
 
-    //Todo relation with connection id
-    private Connection connection;
+/*    //Todo relation with connection id
+    private Connection connection;*/
 
     @NotBlank(message = "empty query")
     private String scheme;
