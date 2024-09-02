@@ -1,15 +1,14 @@
 package datamartapp.controllers;
 
+import datamartapp.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(path = "data-mart/login")
+@CrossOrigin(origins = "http://localhost:63342")
+@RequestMapping("/data-mart/login")
 @RequiredArgsConstructor
 public class LoginController {
 
@@ -17,6 +16,12 @@ public class LoginController {
     @ResponseStatus(HttpStatus.OK)
     public String getLoginPage() {
         return "login.html";
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createUser(@RequestBody User user) {
+        System.out.println("Smth happend");
     }
 
 }
