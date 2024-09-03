@@ -25,6 +25,8 @@ public class Dataset {
     private User user;
 
     //Todo relation with connection id
+    @ManyToOne
+    @JoinColumn(name = "connection_id")
     private Connection connection;
 
     @NotBlank(message = "empty query")

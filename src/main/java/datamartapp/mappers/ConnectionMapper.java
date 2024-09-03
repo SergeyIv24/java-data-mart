@@ -1,6 +1,7 @@
 package datamartapp.mappers;
 
 import datamartapp.dto.ConnectionDto;
+import datamartapp.dto.ConnectionUpdate;
 import datamartapp.model.Connection;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -30,8 +31,32 @@ public class ConnectionMapper {
                 .displayName(connection.getDisplayName())
                 .created(connection.getCreated())
                 .build();
-
     }
 
+    public static Connection updateConnection(Connection updatingConnection, ConnectionUpdate connectionUpdate) {
+        if (connectionUpdate.getHost() != null) {
+            updatingConnection.setHost(connectionUpdate.getHost());
+        }
 
+        if (connectionUpdate.getPort() != null) {
+            updatingConnection.setPort(connectionUpdate.getPort());
+        }
+
+        if (connectionUpdate.getDbName() != null) {
+            updatingConnection.setDbName(connectionUpdate.getDbName());
+        }
+
+        if (connectionUpdate.getDbUser() != null) {
+            updatingConnection.setDbUser(connectionUpdate.getDbUser());
+        }
+
+        if (connectionUpdate.getDbPassword() != null) {
+            updatingConnection.setDbPassword(connectionUpdate.getDbPassword());
+        }
+
+        if (connectionUpdate.getDisplayName() != null) {
+            updatingConnection.setDisplayName(connectionUpdate.getDisplayName());
+        }
+        return updatingConnection;
+    }
 }

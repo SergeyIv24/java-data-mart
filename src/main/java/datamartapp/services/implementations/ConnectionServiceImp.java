@@ -1,55 +1,77 @@
 package datamartapp.services.implementations;
 
 import datamartapp.dto.ConnectionDto;
+import datamartapp.dto.ConnectionUpdate;
 import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.mappers.ConnectionMapper;
 import datamartapp.model.Connection;
 import datamartapp.repositories.ConnectionRepository;
 import datamartapp.services.ConnectionService;
-import datamartapp.services.SortingWay;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Optional;
+import org.springframework.data.domain.Sort.Direction;
 
+
+//todo check in superset: Is it possible to connect to db without docker container
+//todo pagination formula:
+// pageNum, 2
+// amount 5, 5
+// limit pageNum * amount, 10
+// first limit - amount 5
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ConnectionServiceImp implements ConnectionService {
-    private final short amountOnPage = 5;
     private final ConnectionRepository connectionRepository;
 
     @Override
     public Collection<ConnectionDto> getConnections(int pageNum, String sort) {
         validateSortingParameter(sort);
+        final int pageSize = 5;
 
-        //todo pagination formula:
-        // pageNum, 2
-        // amount 5, 5
-        // limit pageNum * amount, 10
-        // first limit - amount 5
+        Sort sorting = Sort.by(Direction.ASC);
 
-        return null;
+        if (sort.equals(String.valueOf(Direction.DESC))) {
+            sorting = Sort.by(Direction.DESC);
+        }
+
+        Pageable pageable = PageRequest.of(pageNum, pageSize, sorting);
+        return connectionRepository.findAll(pageable)
+                .stream()
+                .map(ConnectionMapper::mapToConnectionDto)
+                .toList();
     }
 
     @Override
     public ConnectionDto createConnection(ConnectionDto connectionDto) {
-        //todo valid connection, try to connect, mapper + add to data base
-
+        connectionDto.setCreated(LocalDateTime.now());
         Connection connection = ConnectionMapper.mapToConnection(connectionDto);
-
+        validateConnection(connection);
         return ConnectionMapper.mapToConnectionDto(connectionRepository.save(connection));
     }
 
     @Override
-    public ConnectionDto updateConnection(ConnectionDto connectionDto, long connectionId) {
-        //todo validate connection, try to connect, add to data base
-        isConnectionExisted(connectionId);
-        return null;
+    public ConnectionDto updateConnection(ConnectionUpdate connectionUpdate, long connectionId) {
+        Connection updatingConnection = getConnection(connectionId);
+        Connection updatedConnection = ConnectionMapper.updateConnection(updatingConnection, connectionUpdate);
+        validateConnection(updatedConnection);
+        return ConnectionMapper.mapToConnectionDto(connectionRepository.save(updatedConnection));
     }
 
     @Override
@@ -58,14 +80,12 @@ public class ConnectionServiceImp implements ConnectionService {
         connectionRepository.deleteById(connectionId);
     }
 
-    private static boolean tryToConnect(ConnectionDto connectionDto) {
-        return true;
+    private void validateAndGetUser(long userId) {
+        //todo imp method if it needs
     }
 
     private void isConnectionExisted(long connectionId) {
-
         Optional<Connection> connection = connectionRepository.findById(connectionId);
-
         if (connection.isEmpty()) {
             log.warn("Connection is not existed");
             throw new NotFoundException("Connection is not existed");
@@ -73,9 +93,13 @@ public class ConnectionServiceImp implements ConnectionService {
         log.info("Connection is found");
     }
 
+    private Connection getConnection(long connectionId) {
+        //todo imp
+    }
+
     private void validateSortingParameter(String sort) {
         try {
-            SortingWay way = SortingWay.valueOf(sort);
+            Direction way = Direction.valueOf(sort);
         } catch (IllegalArgumentException e) {
             log.warn("Input string {} is not belonged to enum", sort);
             throw new ValidationException("String is not belonged to SortingWay");
@@ -83,4 +107,28 @@ public class ConnectionServiceImp implements ConnectionService {
         log.info("Input string {} is correct", sort);
     }
 
+    private String prepareURL(Connection connection) {
+        URL dbUrl;
+        try {
+            dbUrl = new URI(connection.getHost() +
+                    ":" + connection.getPort() + "/" + connection.getDbName()).toURL();
+        } catch (MalformedURLException | URISyntaxException e) {
+            log.warn("Database URL: {} is bad", connection.getHost() +
+                    ":" + connection.getPort() + "/" + connection.getDbName());
+            throw new ValidationException("Database URL: " + connection.getHost() +
+                    ":" + connection.getPort() + "/" + connection.getDbName() + " is bad");
+        }
+        return dbUrl.toString();
+    }
+
+    private void validateConnection(Connection connection) {
+        try (java.sql.Connection conn =
+                     DriverManager.getConnection(prepareURL(connection),
+                             connection.getDbUser(), connection.getDbPassword())) {
+            log.info("Successful connection to database");
+        } catch (SQLException e) {
+            log.warn("Data base connection error");
+            throw new ValidationException("");
+        }
+    }
 }

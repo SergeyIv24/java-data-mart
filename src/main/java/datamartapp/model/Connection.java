@@ -40,6 +40,10 @@ public class Connection {
     @NotBlank(message = "empty display name")
     private String displayName;
 
+    @Column(name = "db_type")
+    @NotBlank(message = "db type is empty")
+    private String dbType;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

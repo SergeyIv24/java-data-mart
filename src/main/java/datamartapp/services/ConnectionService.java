@@ -1,6 +1,7 @@
 package datamartapp.services;
 
 import datamartapp.dto.ConnectionDto;
+import datamartapp.dto.ConnectionUpdate;
 
 import java.util.Collection;
 
@@ -10,7 +11,7 @@ public interface ConnectionService {
 
     ConnectionDto createConnection(ConnectionDto connectionDto);
 
-    ConnectionDto updateConnection(ConnectionDto connectionDto, long connectionId);
+    ConnectionDto updateConnection(ConnectionUpdate connectionUpdate, long connectionId);
 
     void deleteConnection(long connectionId);
 
