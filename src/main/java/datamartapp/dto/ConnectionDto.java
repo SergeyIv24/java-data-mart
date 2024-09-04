@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class ConnectionDto {
 
     @NotBlank(message = "empty host")
-    @Length(min = 10, max = 200)
+    @Length(min = 5, max = 200)
     private String host;
 
     @NotNull(message = "empty port")

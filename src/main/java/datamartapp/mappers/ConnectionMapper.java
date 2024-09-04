@@ -17,6 +17,7 @@ public class ConnectionMapper {
                 .dbUser(connectionDto.getDbUser())
                 .dbPassword(connectionDto.getDbPassword())
                 .displayName(connectionDto.getDisplayName())
+                .dbType(connectionDto.getDbType())
                 .created(connectionDto.getCreated())
                 .build();
     }
@@ -29,6 +30,7 @@ public class ConnectionMapper {
                 .dbUser(connection.getDbUser())
                 .dbPassword(connection.getDbPassword())
                 .displayName(connection.getDisplayName())
+                .dbType(connection.getDbType())
                 .created(connection.getCreated())
                 .build();
     }

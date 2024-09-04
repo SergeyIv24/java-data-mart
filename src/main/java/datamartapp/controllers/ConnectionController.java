@@ -26,7 +26,7 @@ public class ConnectionController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Collection<ConnectionDto> getConnections(@Min(0) @PathParam("pageNum") int pageNum,
+    public Collection<ConnectionDto> getConnections(@Min(0) @RequestParam(value = "pageNum", defaultValue = "0") int pageNum,
                                                     @PathParam("sort") String sort,
                                                     @PathVariable(value = "userId") long userId) {
         log.info("ConnectionsController, getConnections, pageNum: {}, sort {}", pageNum, sort);

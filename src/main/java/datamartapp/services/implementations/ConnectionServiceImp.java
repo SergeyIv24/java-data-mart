@@ -15,15 +15,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Optional;
+
 import org.springframework.data.domain.Sort.Direction;
 
 
@@ -45,10 +42,10 @@ public class ConnectionServiceImp implements ConnectionService {
         validateSortingParameter(sort);
         final int pageSize = 5;
 
-        Sort sorting = Sort.by(Direction.ASC);
+        Sort sorting = Sort.by(Direction.ASC, "created");
 
         if (sort.equals(String.valueOf(Direction.DESC))) {
-            sorting = Sort.by(Direction.DESC);
+            sorting = Sort.by(Direction.DESC, "created");
         }
 
         Pageable pageable = PageRequest.of(pageNum, pageSize, sorting);
@@ -94,7 +91,12 @@ public class ConnectionServiceImp implements ConnectionService {
     }
 
     private Connection getConnection(long connectionId) {
-        //todo imp
+        Optional<Connection> connection = connectionRepository.findById(connectionId);
+        if (connection.isEmpty()) {
+            log.warn("Connection with id: {} is not found", connectionId);
+            throw new NotFoundException("Connection with id: " + connectionId + " is not found");
+        }
+        return connection.get();
     }
 
     private void validateSortingParameter(String sort) {
@@ -107,8 +109,56 @@ public class ConnectionServiceImp implements ConnectionService {
         log.info("Input string {} is correct", sort);
     }
 
+    private void validateConnectionData(Connection connection) {
+        if (!connection.getDbType().equalsIgnoreCase(String.valueOf(SupportedDatabases.POSTGRESQL))
+                && !connection.getDbType().equalsIgnoreCase(String.valueOf(SupportedDatabases.MYSQL))
+                && !connection.getDbType().equalsIgnoreCase(String.valueOf(SupportedDatabases.ORACLE))) {
+            log.warn("Unknown db type: {}", connection.getDbType());
+            throw new ValidationException("Unknown db type: " + connection.getDbType());
+        }
+
+    }
+
     private String prepareURL(Connection connection) {
-        URL dbUrl;
+        return "jdbc:" + connection.getDbType() + "://" + connection.getHost() +
+                ":" + connection.getPort() + "/" + connection.getDbName();
+    }
+
+    private void validateConnection(Connection connection) {
+        validateConnectionData(connection);
+        try (java.sql.Connection conn =
+                     DriverManager.getConnection(prepareURL(connection),
+                             connection.getDbUser(), connection.getDbPassword())) {
+            log.info("Successful connection to database");
+        } catch (SQLException e) {
+            log.warn("Database connection error");
+            throw new ValidationException("Database connection error: " + e.getSQLState());
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*        URL dbUrl;
         try {
             dbUrl = new URI(connection.getHost() +
                     ":" + connection.getPort() + "/" + connection.getDbName()).toURL();
@@ -118,17 +168,4 @@ public class ConnectionServiceImp implements ConnectionService {
             throw new ValidationException("Database URL: " + connection.getHost() +
                     ":" + connection.getPort() + "/" + connection.getDbName() + " is bad");
         }
-        return dbUrl.toString();
-    }
-
-    private void validateConnection(Connection connection) {
-        try (java.sql.Connection conn =
-                     DriverManager.getConnection(prepareURL(connection),
-                             connection.getDbUser(), connection.getDbPassword())) {
-            log.info("Successful connection to database");
-        } catch (SQLException e) {
-            log.warn("Data base connection error");
-            throw new ValidationException("");
-        }
-    }
-}
+        return dbUrl.toString();*/
