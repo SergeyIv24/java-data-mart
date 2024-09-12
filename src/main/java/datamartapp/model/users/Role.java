@@ -1,44 +1,44 @@
-package datamartapp.model;
+package datamartapp.model.users;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Fetch;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Set;
 
 @Entity
-@Table(name = "users_by_roles")
+@Table(name = "roles")
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Role implements GrantedAuthority {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "role_id")
+    private Integer id;
 
-    @NotBlank
-    private String name;
+    @Column(name = "role_name")
+    private String roleName;
 
-    @ManyToMany(fetch = FetchType.LAZY)
     @Transient
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
-    public Role(long id) {
+    public Role(int id) {
         this.id = id;
     }
 
-    public Role(long id, String name) {
+    public Role(int id, String name) {
         this.id = id;
-        this.name = name;
+        this.roleName = name;
     }
 
     @Override
     public String getAuthority() {
-        return name;
+        return roleName;
     }
 }

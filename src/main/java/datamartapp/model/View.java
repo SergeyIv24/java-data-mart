@@ -1,5 +1,6 @@
 package datamartapp.model;
 
+import datamartapp.model.users.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
