@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -16,8 +17,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     boolean existsByUsername(String username);
 
-    @Query(value = "",
+    @Query(value = "SELECT * " +
+            "FROM users AS u " +
+            "WHERE (u.username ILIKE %?1% OR ?1 IS NULL)",
             nativeQuery = true)
-    Set<User> findByUserNameContains(String usernameSearch, Pageable pageable);
+    List<User> findByUserNameContains(String usernameSearch, Pageable pageable);
 
 }

@@ -14,6 +14,8 @@ import datamartapp.repositories.UserRepository;
 import datamartapp.services.UserAdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -78,8 +80,11 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
     }
 
     @Override
-    public List<UserDtoWithoutPass> getUsers(int from, int size, String email) {
-        return null;
+    public List<UserDtoWithoutPass> getUsers(int from, int size, String username) {
+        validateFromAndSize(from, size);
+        int startPage = from > 0 ? (from / size) : 0;
+        Pageable pageable = PageRequest.of(startPage, size);
+        return userMapper.toUserWithoutPassList(userRepository.findByUserNameContains(username, pageable));
     }
 
     private boolean isUserExisted(String username) {
@@ -157,6 +162,13 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
                     "lower case letters and digits");
             throw new ValidationException("Not correct password. Password must contain upper case letters," +
                     "lower case letters and digits");
+        }
+    }
+
+    private void validateFromAndSize(int from, int size) {
+        if (from < 0 || size < 0) {
+            log.warn("Parameters from: {} and size: {} are bad", from, size);
+            throw new ValidationException(String.format("Parameters from: %d and size: %d are bad", from, size));
         }
     }
 }
