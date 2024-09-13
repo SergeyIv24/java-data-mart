@@ -1,26 +1,34 @@
-/*
 package datamartapp.mappers;
 
-import datamartapp.dto.user.UserDtoWithPass;
+import datamartapp.dto.user.UserDtoRequest;
+import datamartapp.dto.user.UserDtoUpdate;
 import datamartapp.dto.user.UserDtoWithoutPass;
 import datamartapp.model.users.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.ReportingPolicy;
+import org.mapstruct.*;
 
 import java.util.List;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(
+        componentModel = MappingConstants.ComponentModel.SPRING,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE,
+        nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
+        uses = {UserMapperUtil.class}
+)
 public interface UserMapper {
 
     UserDtoWithoutPass toUserWithoutPass(User user);
 
+    UserDtoRequest toUserDtoRequest(User user);
+
+    User toUser(UserDtoRequest userDtoRequest);
+
     User toUser(UserDtoWithoutPass userDtoWithoutPass);
 
-    UserDtoWithPass toUserDtoWithPass(User user);
+    User toUser(UserDtoUpdate userDtoUpdate);
 
-    User toUser(UserDtoWithPass userDtoWithPass);
+    @Mapping(target = "password", qualifiedByName = {"UserMapperUtil", "encodePassword"}, source = "password")
+    User update(@MappingTarget User user, UserDtoUpdate userDtoUpdate);
 
     List<UserDtoWithoutPass> toUserWithoutPassList(List<User> users);
+
 }
-*/

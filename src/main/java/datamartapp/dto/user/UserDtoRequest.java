@@ -7,15 +7,13 @@ import org.hibernate.validator.constraints.Length;
 
 @Data
 @AllArgsConstructor
-public class UserDtoWithPass {
+public class UserDtoRequest {
 
     @NotBlank(message = "empty name")
     @Length(min = 2, max = 20)
-    private String login;
+    private String username;
 
     @NotBlank(message = "empty password")
     @Length(min = 6, max = 15)
     private String password;
-
-    //private String role;
 }

@@ -22,7 +22,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-
     <build>
         <resources>
             <resource>
@@ -38,7 +37,7 @@
                 <version>3.3.0</version>
             </plugin>
 
-<!--            <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
@@ -61,7 +60,7 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
-            </plugin>-->
+            </plugin>
 
         </plugins>
 
@@ -126,11 +125,11 @@
             <optional>true</optional>
         </dependency>
 
-<!--        <dependency>
+        <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>1.6.0</version>
-        </dependency>-->
+        </dependency>
 
     </dependencies>
 

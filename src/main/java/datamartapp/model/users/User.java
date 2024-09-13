@@ -37,6 +37,8 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
+    //todo private LocalDataTime createdAt
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
