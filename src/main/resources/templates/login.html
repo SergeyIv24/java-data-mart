@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
     <form>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
         <label for="login">Login</label>
-        <input type="text" id="login" required>
+        <input name="username" type="text" id="login" required placeholder="username">
         <label for="password">Password</label>
-        <input type="text" id="password" required>
-        <input type="submit" value="send">
+        <input name="password" type="text" id="password" required placeholder="password">
+        <input type="submit" value="Log In">
     </form>
 </body>
 
-<script src="scripts/requests.js"></script>
 
+<script th:src="@{/js/requests.js}"></script>
+<!--<form method="POST" action="login">-->
 
 </html>
 

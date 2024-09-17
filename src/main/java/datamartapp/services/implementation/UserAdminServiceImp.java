@@ -37,11 +37,13 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //todo add handling of empty username
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isEmpty()) {
             log.warn("User with login: {} is not found", username);
             throw new NotFoundException(String.format("User with login: %s is not found", username));
         }
+        log.debug("User with username: {} is successfully found", username);
         return user.get();
     }
 
