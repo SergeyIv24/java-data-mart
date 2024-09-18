@@ -4,19 +4,64 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
+    <header>
+        <div class="header-row">
+
+        </div>
+    </header>
+
+        <div class="main-container">
+            <div class="login-box">
+                <div class="login-box-header">
+
+                </div>
+                <div class="box">
+                    <form>
+                        <div class="description">Entry your username and login</div>
+                        <label for="username">Username:</label><br>
+                        <input name="username" type="text" id="username" required placeholder="Username"><br>
+                        <label for="password">Password</label><br>
+                        <input name="password" type="text" id="password" required placeholder="password"><br>
+                        <div class="btn-block">
+                            <input type="submit" value="Log In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+<script th:src="@{/js/requests.js}"></script>
+
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet"/>
+</head>
+
+<body>
+    <h2>Log in</h2>
     <form>
-        <label for="login">Login</label>
-        <input name="username" type="text" id="login" required placeholder="username">
-        <label for="password">Password</label>
-        <input name="password" type="text" id="password" required placeholder="password">
+        <label for="username">Username:</label><br>
+        <input name="username" type="text" id="username" required placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input name="password" type="text" id="password" required placeholder="password"><br>
         <input type="submit" value="Log In">
     </form>
 </body>
 
 
 <script th:src="@{/js/requests.js}"></script>
-<!--<form method="POST" action="login">-->
+&lt;!&ndash;<form method="POST" action="login">&ndash;&gt;
 
 </html>
 
+-->

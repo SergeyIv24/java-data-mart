@@ -17,11 +17,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled = true, jsr250Enabled = true)
 @RequiredArgsConstructor
 public class WebSecurityConfig {
+
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -41,8 +43,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/js/**").permitAll()
+                        .requestMatchers("/css/**").permitAll()
                         .requestMatchers("/data-mart/admin**").hasRole("ADMIN")
-                        .requestMatchers("/data-mart/home").hasRole("USER")
+                        //.requestMatchers("/data-mart/home").hasRole("USER")
                         .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/data-mart/login")
                         .defaultSuccessUrl("/data-mart/home", true))
