@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home-admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="login" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2lum5EyyOdMMSuI2X1Q9jlE4xed" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "home",
+    "last_opened_file_path": "C:/study/Java/tasks/Data mart/java-data-mart",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47356322"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
+      <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\css" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="datamartapp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.DataMartApp">
+    <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminServiceTests.shouldCorrectValidateRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
+      <option name="METHOD_NAME" value="shouldCorrectValidateRole" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminServiceTests.shouldValidatePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
+      <option name="METHOD_NAME" value="shouldValidatePassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConnectionControllerTest.shouldNotAddConnectionFailedHost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.ConnectionControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotAddConnectionFailedHost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DataMartApp" />
+        <item itemvalue="JUnit.AdminServiceTests.shouldCorrectValidateRole" />
+        <item itemvalue="JUnit.AdminServiceTests" />
+        <item itemvalue="JUnit.AdminServiceTests.shouldValidatePassword" />
+        <item itemvalue="JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="" />
+      <created>1726038154099</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726038154099</updated>
+    </task>
+    <servers />
+  </component>
+</project>
