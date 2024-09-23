@@ -14,6 +14,6 @@ public interface UserAdminService {
 
     void deleteUser(long userId);
 
-    List<UserDtoWithoutPass> getUsers(int from, int size, String email);
+    List<UserDtoWithoutPass> getUsers(int from, int size);
 
 }

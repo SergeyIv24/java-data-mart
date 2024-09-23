@@ -68,7 +68,7 @@ public class LoginControllerTest {
 /*        User admin = new User(1L ,"admin", "admin", Set.of(new Role(1, "ROLE_ADMIN")));
         when(userDetailsService.loadUserByUsername(anyString())).thenReturn(admin);
         UserDtoRequest userDtoRequest = new UserDtoRequest("admin", "admin");
-        mvc.perform(multipart("/data-mart/login")
+        mvc.perform(multipart("/login")
                 .characterEncoding(StandardCharsets.UTF_8)
                 .contentType(MediaType.MULTIPART_FORM_DATA).content(mapper.writeValueAsString(userDtoRequest)))
                 .andExpect(status().isOk());*/

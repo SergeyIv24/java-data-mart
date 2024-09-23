@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -37,16 +38,33 @@ public class WebSecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
-    @Bean
+/*    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/js/**").permitAll()
                         .requestMatchers("/css/**").permitAll()
-                        .requestMatchers("/data-mart/admin**").hasRole("ADMIN")
-                        //.requestMatchers("/data-mart/home").hasRole("USER")
+                        //.requestMatchers("/data-mart/admin**").hasRole("ADMIN")
+                        .requestMatchers("/data-mart/home").hasRole("ADMIN")
+                        .requestMatchers("/data-mart/home").hasRole("USER")
                         .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/data-mart/login")
-                        .defaultSuccessUrl("/data-mart/home", true))
+                        .defaultSuccessUrl("/data-mart/home"))
+                .logout(logout -> logout.permitAll().logoutSuccessUrl("/data-mart/login"));
+        return http.build();
+    }*/
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf(AbstractHttpConfigurer::disable);
+        http.authorizeHttpRequests(auth -> auth
+                .requestMatchers("/login").permitAll() //Free access to login page
+                .requestMatchers("/css/**").permitAll() //Free access to any css
+                .requestMatchers("/js/**").permitAll() //Free aces to any js scripts
+                .requestMatchers("/data/mart/admin/**").hasRole("ADMIN")
+                .requestMatchers("/data-mart/**").authenticated()
+                .anyRequest().authenticated());
+        http.formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/data-mart/home")
+                .failureUrl("/login"))
                 .logout(logout -> logout.permitAll().logoutSuccessUrl("/data-mart/login"));
         return http.build();
     }

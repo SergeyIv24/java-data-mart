@@ -23,6 +23,12 @@ public class User implements UserDetails {
     @Column(name = "user_id")
     private Long userId;
 
+    @NotBlank(message = "empty firstname")
+    private String firstname;
+
+    @NotBlank(message = "empty lastname")
+    private String lastname;
+
     @NotBlank(message = "empty login")
     private String username;
 

@@ -14,6 +14,7 @@ import datamartapp.repositories.UserRepository;
 import datamartapp.services.UserAdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +26,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -82,11 +84,15 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
     }
 
     @Override
-    public List<UserDtoWithoutPass> getUsers(int from, int size, String username) {
+    public List<UserDtoWithoutPass> getUsers(int from, int size) {
         validateFromAndSize(from, size);
         int startPage = from > 0 ? (from / size) : 0;
         Pageable pageable = PageRequest.of(startPage, size);
-        return userMapper.toUserWithoutPassList(userRepository.findByUserNameContains(username, pageable));
+
+        Page<User> usersByPages = userRepository.findAll(pageable);
+        return userMapper.toUserWithoutPassList(usersByPages.toList());
+        //return userMapper.toUserWithoutPassList(userRepository.findByUserNameContains(null, pageable));
+
     }
 
     private boolean isUserExisted(String username) {

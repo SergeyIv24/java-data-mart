@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="navigation">
+            Admin home page
+        </div>
+        <li role="presentation" class="usersItem">
+            <a role="button" href="">
+                Users
+            </a>
+        </li>
+        <li role="presentation" class="usersItem">
+            <a role="button" href="">
+                Connections
+            </a>
+        </li>
+        <li role="presentation" class="usersItem">
+            <a role="button" href="">
+                Datasets
+            </a>
+        </li>
+        <li role="presentation" class="usersItem">
+            <a role="button" href="">
+                Dashboards
+            </a>
+        </li>
+        <div class="logout">
+            <input type="submit" value="Log out">
+        </div>
+    </div>
+</header>
+
+<div class="panel-body">
+    <div class="panel-header">
+        Users
+    </div>
+    <div class="panel-content">
+        <div class="user-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <!--<th>Role</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ul : ${usersList}">
+                    <td th:text="${ul.username}"></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

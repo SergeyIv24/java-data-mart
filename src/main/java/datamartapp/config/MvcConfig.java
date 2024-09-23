@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/data-mart/login").setViewName("login");
-        registry.addViewController("/data-mart/home").setViewName("home");
+        registry.addViewController("/login").setViewName("login");
+        //registry.addViewController("/data-mart/home").setViewName("home");
     }
 
 /*    @Override

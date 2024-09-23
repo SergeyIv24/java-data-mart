@@ -9,6 +9,12 @@ import org.hibernate.validator.constraints.Length;
 @AllArgsConstructor
 public class UserDtoRequest {
 
+    @NotBlank(message = "empty firstname")
+    private String firstname;
+
+    @NotBlank(message = "empty lastname")
+    private String lastname;
+
     @NotBlank(message = "empty name")
     @Length(min = 2, max = 20)
     private String username;

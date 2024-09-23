@@ -1,23 +1,23 @@
-function handleLoginForm(event) {
+/*function handleLoginForm(event) {
     event.preventDefault();
 
-    let request = new Request("http://localhost:8080/data-mart/login", {
+    let request = new Request("http://localhost:8080/login", {
         method: 'POST',
         body: new FormData(form)
     });
 
     fetch(request).then(
         function(response) {
-            if (response.status != 200) {
-                console.log('Something went wrong')
-            } else {
-                location.href = "http://localhost:8080/data-mart/home"
-            }
+            //if (response.status == 200) {
+              //  location.href = "http://localhost:8080/data-mart/home"
+            //} else {
+            //    console.log('Something went wrong')
+            //}
         },
     );
 }
 const form = document.querySelector('form');
-form.addEventListener('submit', handleLoginForm);
+form.addEventListener('submit', handleLoginForm);*/
 
 
 

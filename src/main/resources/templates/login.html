@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -15,10 +16,9 @@
         <div class="main-container">
             <div class="login-box">
                 <div class="login-box-header">
-
                 </div>
                 <div class="box">
-                    <form>
+                    <form method="POST" action="login">
                         <div class="description">Entry your username and login</div>
                         <label for="username">Username:</label><br>
                         <input name="username" type="text" id="username" required placeholder="Username"><br>
@@ -60,7 +60,7 @@
 
 
 <script th:src="@{/js/requests.js}"></script>
-&lt;!&ndash;<form method="POST" action="login">&ndash;&gt;
+<form method="POST" action="login">
 
 </html>
 

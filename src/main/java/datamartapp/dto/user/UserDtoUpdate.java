@@ -1,5 +1,6 @@
 package datamartapp.dto.user;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -7,6 +8,10 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @AllArgsConstructor
 public class UserDtoUpdate {
+
+    private String firstname;
+
+    private String lastname;
 
     @Length(min = 2, max = 20)
     private String username;
