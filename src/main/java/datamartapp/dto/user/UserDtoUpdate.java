@@ -1,6 +1,7 @@
 package datamartapp.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -18,4 +19,6 @@ public class UserDtoUpdate {
 
     @Length(min = 6, max = 15)
     private String password;
+
+    private Boolean isActive;
 }

@@ -26,7 +26,7 @@ public class adminControllerMvc {
                                @RequestParam(value = "size", defaultValue = "10") int size,
                                Model model) {
         List<UserDtoWithoutPass> users = adminUserController.getUsers(from, size);
-        model.addAttribute("usersList", users);
+        model.addAttribute("userList", users);
         return "adminUsers";
     }
 

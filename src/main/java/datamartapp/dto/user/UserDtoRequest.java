@@ -1,6 +1,7 @@
 package datamartapp.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -22,4 +23,7 @@ public class UserDtoRequest {
     @NotBlank(message = "empty password")
     @Length(min = 6, max = 15)
     private String password;
+
+    @NotNull(message = "Active must be defined")
+    private Boolean isActive;
 }
