@@ -39,19 +39,23 @@
             <td th:text="${ul.firstname}"></td>
             <td th:text="${ul.lastname}"></td>
             <td th:text="${ul.username}"></td>
-            <td></td>
-            <td></td>
+            <td th:text="${ul.isActive}"></td>
+            <td th:each="ur : ${ul.roles}" th:text="${ur.roleName}"></td>
             <td>
                 <button class="action-btn">🔍</button>
                 <button class="action-btn">✏️</button>
-                <button class="action-btn delete">🗑️</button>
+                <button class="action-btn delete" onclick="handleDeleteUser(${ul.id})">🗑️</button>
+<!--                <form>
+                    &lt;!&ndash;<input type="hidden" name="id">&ndash;&gt;
+                    <input type="submit" value="🗑️" class="action-btn delete">
+                </form>-->
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 
-<!-- Модальное окно для добавления пользователя -->
+<!-- Модальное окно для добавления пользователя th:action="@{/data-mart/admin/{id}(id=1)}" method="delete"-->
 <div class="modal" id="userModal">
     <div class="modal-content">
         <button class="close-btn" onclick="closeModal()">✖</button>
@@ -91,6 +95,7 @@
     </div>
 </div>
 <script th:src="@{/js/adminUserScripts.js}"></script>
+<script th:src="@{/js/requests.js}"></script>
 
 </body>
 </html>

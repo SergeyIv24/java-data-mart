@@ -1,8 +1,22 @@
+function handleDeleteUser(userId) {
+    let request = new Request("http://localhost:8080/data-mart/admin/user/" + userId, {
+        method: 'DELETE',
+    });
+
+    fetch(request).then(
+        function(response) {
+
+        }
+    );
+}
+
+
+
 /*function handleLoginForm(event) {
     event.preventDefault();
 
-    let request = new Request("http://localhost:8080/login", {
-        method: 'POST',
+    let request = new Request("http://localhost:8080/data-mart/admin/", {
+        method: 'DELETE',
         body: new FormData(form)
     });
 

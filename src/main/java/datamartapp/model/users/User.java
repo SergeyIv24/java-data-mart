@@ -45,6 +45,7 @@ public class User implements UserDetails {
     private Set<Role> roles;
 
     @NotNull(message = "Active must be defined")
+    @Column(name = "is_active")
     private Boolean isActive;
 
     //todo private LocalDataTime createdAt

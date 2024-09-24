@@ -13,6 +13,8 @@ import java.util.Set;
 @AllArgsConstructor
 public class UserDtoWithoutPass {
 
+    private Long id;
+
     @NotBlank(message = "empty firstname")
     private String firstname;
 
@@ -22,6 +24,7 @@ public class UserDtoWithoutPass {
     @NotBlank(message = "empty name")
     @Length(min = 2, max = 20)
     private String username;
+
     private Set<Role> roles;
 
     @NotNull(message = "Active must be defined")

@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS users (
     firstname VARCHAR NOT NULL,
     lastname VARCHAR NOT NULL,
     username VARCHAR UNIQUE NOT NULL,
-    password VARCHAR NOT NULL
+    password VARCHAR NOT NULL,
+    is_active BOOLEAN NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS users_roles (

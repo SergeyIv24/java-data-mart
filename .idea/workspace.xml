@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/adminUsersStyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/adminUserScripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,6 +180,20 @@
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java</url>
           <line>67</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>50</line>
+          <properties class="datamartapp.controllers.restControllers.AdminUserController" method="deleteUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
