@@ -1,2 +1,4 @@
-package datamartapp.controllers.restControllers;public class AdminControllerTest {
+package datamartapp.controllers.restControllers;
+
+public class AdminControllerTest {
 }

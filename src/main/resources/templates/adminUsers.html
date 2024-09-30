@@ -40,8 +40,8 @@
             <td th:text="${ul.username}"></td>
             <td th:each="ur : ${ul.roles}" th:text="${ur.roleName}"></td>
             <td>
-                <button class="action-btn">🔍</button>
-                <button class="action-btn">✏️</button>
+<!--                <button class="action-btn">🔍</button>-->
+                <button class="action-btn" id="updater" th:data-name="${ul.userId}" th:onclick="openModalUpdate()">✏️</button>
                 <button class="action-btn delete" th:onclick="handleDeleteUser([[${ul.userId}]])">🗑️</button>
             </td>
         </tr>
@@ -74,6 +74,33 @@
         </form>
     </div>
 </div>
+
+<div class="modal" id="updateModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModalUpdate()">✖</button>
+        <h2>Update User</h2>
+        <form class="updateUserForm" id="updateUser">
+            <label for="firstname">First Name</label>
+            <input name="firstname" type="text" id="firstnameUpdate" placeholder="First Name">
+            <label for="lastname">Last Name</label>
+            <input name="lastname" type="text" id="lastnameUpdate" placeholder="Last Name">
+            <label for="username">User Name</label>
+            <input name="username" type="text" id="usernameUpdate" placeholder="User Name">
+            <label for="password">Password</label>
+            <input name="password" type="password" id="passwordUpdate" placeholder="Password">
+            <label for="role">Role</label>
+            <select id="roleUpdate">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div class="button-container">
+                <button onclick="handleUpdateUser(event)" class="save-btn">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script th:src="@{/js/adminUserScripts.js}"></script>
 <script th:src="@{/js/requests.js}"></script>
 

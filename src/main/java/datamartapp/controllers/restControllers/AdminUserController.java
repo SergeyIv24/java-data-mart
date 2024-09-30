@@ -27,7 +27,6 @@ public class AdminUserController {
     public UserDtoWithoutPass addUser(@Valid @RequestBody UserDtoRequest userDtoRequest,
                                       @RequestParam(value = "role", defaultValue = "ROLE_USER") String role) {
         //todo add isActive
-        //todo always get adminRole
         log.info("AdminUserController, addUser, userDtoRequest: {}, role: {}", userDtoRequest, role);
         return userAdminService.addUser(userDtoRequest, GeneralConstant.ROLE_PREFIX + role.toUpperCase());
     }

@@ -39,7 +39,10 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //todo add handling of empty username
+        if (username.isBlank() || username.isEmpty()) {
+            log.warn("Empty username");
+            throw new ValidationException("Empty username");
+        }
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isEmpty()) {
             log.warn("User with login: {} is not found", username);
@@ -61,7 +64,7 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
         }
 
         User addingUser = userMapper.toUser(userDtoWithPass);
-        addingUser.setRoles(Set.of(new Role(1, role)));
+        addingUser.setRoles(Set.of(prepareRole(role)));
         addingUser.setPassword(encoder.encode(userDtoWithPass.getPassword()));
         return userMapper.toUserWithoutPass(userRepository.save(addingUser));
     }
@@ -88,11 +91,17 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
         validateFromAndSize(from, size);
         int startPage = from > 0 ? (from / size) : 0;
         Pageable pageable = PageRequest.of(startPage, size);
-
         Page<User> usersByPages = userRepository.findAll(pageable);
         return userMapper.toUserWithoutPassList(usersByPages.toList());
         //return userMapper.toUserWithoutPassList(userRepository.findByUserNameContains(null, pageable));
 
+    }
+
+    private Role prepareRole(String roleName) {
+        if (roleName.equals(String.valueOf(SupportedRoles.ROLE_ADMIN))) {
+            return new Role(1, roleName);
+        }
+        return new Role(2, roleName);
     }
 
     private boolean isUserExisted(String username) {

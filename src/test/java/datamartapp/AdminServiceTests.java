@@ -32,7 +32,7 @@ public class AdminServiceTests {
         Assertions.assertDoesNotThrow(() -> userAdminService.validatePassword("Ser15"));
         long end = System.currentTimeMillis();
         System.out.println((float) (end - start) / 1000);
-    }*/
+    }
 
 /*    @Test
     void shouldCorrectValidateRole() {
