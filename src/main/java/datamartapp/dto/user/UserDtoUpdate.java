@@ -19,6 +19,4 @@ public class UserDtoUpdate {
 
     @Length(min = 6, max = 15)
     private String password;
-
-    private Boolean isActive;
 }

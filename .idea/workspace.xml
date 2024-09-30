@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/GeneralConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/ConnectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/ConnectionRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +67,8 @@
     &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/SinglyLinkedList&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -183,17 +191,56 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
-          <line>52</line>
+          <line>56</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.jdks/corretto-21.0.3/lib/src.zip!/java.base/sun/security/ssl/SSLSessionImpl.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/adminControllerMvc.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/adminControllerMvc.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
-          <line>50</line>
+          <line>53</line>
           <properties class="datamartapp.controllers.restControllers.AdminUserController" method="deleteUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
+          <line>26</line>
+          <properties class="datamartapp.controllers.restControllers.AdminUserController" method="addUser">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

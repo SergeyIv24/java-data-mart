@@ -29,7 +29,6 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>User Name</th>
-            <th>Is Active?</th>
             <th>Role</th>
             <th>Actions</th>
         </tr>
@@ -39,59 +38,40 @@
             <td th:text="${ul.firstname}"></td>
             <td th:text="${ul.lastname}"></td>
             <td th:text="${ul.username}"></td>
-            <td th:text="${ul.isActive}"></td>
             <td th:each="ur : ${ul.roles}" th:text="${ur.roleName}"></td>
             <td>
                 <button class="action-btn">🔍</button>
                 <button class="action-btn">✏️</button>
-                <button class="action-btn delete" onclick="handleDeleteUser(${ul.id})">🗑️</button>
-<!--                <form>
-                    &lt;!&ndash;<input type="hidden" name="id">&ndash;&gt;
-                    <input type="submit" value="🗑️" class="action-btn delete">
-                </form>-->
+                <button class="action-btn delete" th:onclick="handleDeleteUser([[${ul.userId}]])">🗑️</button>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 
-<!-- Модальное окно для добавления пользователя th:action="@{/data-mart/admin/{id}(id=1)}" method="delete"-->
 <div class="modal" id="userModal">
     <div class="modal-content">
         <button class="close-btn" onclick="closeModal()">✖</button>
         <h2>Add User</h2>
-        <label for="firstName">First Name *</label>
-        <input type="text" id="firstName" placeholder="First Name">
-
-        <label for="lastName">Last Name *</label>
-        <input type="text" id="lastName" placeholder="Last Name">
-
-        <label for="username">User Name *</label>
-        <input type="text" id="username" placeholder="User Name">
-
-        <label for="role">Role *</label>
-        <select id="role">
-            <option value="" disabled selected>Select Role</option>
-            <option value="Admin">Admin</option>
-            <option value="User">User</option>
-        </select>
-
-        <label for="password">Password *</label>
-        <input type="password" id="password" placeholder="Password">
-
-        <label for="confirmPassword">Confirm Password *</label>
-        <input type="password" id="confirmPassword" placeholder="Confirm Password">
-
-        <!-- Чекбокс с текстом на одной строке с уменьшенным расстоянием и отступом снизу -->
-        <div class="checkbox-inline">
-            <label for="isActive">Is Active?</label>
-            <input type="checkbox" id="isActive">
-        </div>
-
-        <div class="button-container">
-            <button class="save-btn">SAVE</button>
-        </div>
-
+        <form class="addUserForm" id="addUser">
+            <label for="firstname">First Name *</label>
+            <input name="firstname" type="text" id="firstname" placeholder="First Name">
+            <label for="lastname">Last Name *</label>
+            <input name="lastname" type="text" id="lastname" placeholder="Last Name">
+            <label for="username">User Name *</label>
+            <input name="username" type="text" id="username" placeholder="User Name">
+            <label for="password">Password *</label>
+            <input name="password" type="password" id="password" placeholder="Password">
+            <label for="role">Role *</label>
+            <select id="role">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div class="button-container">
+                <button type="submit" onclick="handleAddUser" class="save-btn">SAVE</button>
+            </div>
+        </form>
     </div>
 </div>
 <script th:src="@{/js/adminUserScripts.js}"></script>
@@ -100,70 +80,3 @@
 </body>
 </html>
 
-<!--
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
-<header>
-    <div class="header">
-        <div class="navigation">
-            Admin home page
-        </div>
-        <li role="presentation" class="usersItem">
-            <a role="button" href="">
-                Users
-            </a>
-        </li>
-        <li role="presentation" class="usersItem">
-            <a role="button" href="">
-                Connections
-            </a>
-        </li>
-        <li role="presentation" class="usersItem">
-            <a role="button" href="">
-                Datasets
-            </a>
-        </li>
-        <li role="presentation" class="usersItem">
-            <a role="button" href="">
-                Dashboards
-            </a>
-        </li>
-        <div class="logout">
-            <input type="submit" value="Log out">
-        </div>
-    </div>
-</header>
-
-<div class="panel-body">
-    <div class="panel-header">
-        Users
-    </div>
-    <div class="panel-content">
-        <div class="user-table">
-            <table>
-                <thead>
-                <tr>
-                    <th>Username</th>
-                    &lt;!&ndash;<th>Role</th>&ndash;&gt;
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="ul : ${usersList}">
-                    <td th:text="${ul.username}"></td>
-                    <td></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-</div>
-
-
-</body>
-</html>-->

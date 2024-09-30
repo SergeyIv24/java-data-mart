@@ -23,7 +23,4 @@ public class UserDtoRequest {
     @NotBlank(message = "empty password")
     @Length(min = 6, max = 15)
     private String password;
-
-    @NotNull(message = "Active must be defined")
-    private Boolean isActive;
 }

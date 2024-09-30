@@ -1,5 +1,6 @@
 package datamartapp.controllers.restControllers;
 
+import datamartapp.config.GeneralConstant;
 import datamartapp.dto.user.UserDtoRequest;
 import datamartapp.dto.user.UserDtoUpdate;
 import datamartapp.dto.user.UserDtoWithoutPass;
@@ -25,8 +26,10 @@ public class AdminUserController {
     @ResponseStatus(HttpStatus.CREATED)
     public UserDtoWithoutPass addUser(@Valid @RequestBody UserDtoRequest userDtoRequest,
                                       @RequestParam(value = "role", defaultValue = "ROLE_USER") String role) {
+        //todo add isActive
+        //todo always get adminRole
         log.info("AdminUserController, addUser, userDtoRequest: {}, role: {}", userDtoRequest, role);
-        return userAdminService.addUser(userDtoRequest, role);
+        return userAdminService.addUser(userDtoRequest, GeneralConstant.ROLE_PREFIX + role.toUpperCase());
     }
 
     @PatchMapping("/{userId}")
@@ -50,6 +53,7 @@ public class AdminUserController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUser(@PathVariable(value = "userId") long userId) {
         log.info("AdminUserController, deleteUser, userId: {}", userId);
+        //to do user must not delete yourself
         userAdminService.deleteUser(userId);
     }
 }
