@@ -1,18 +1,19 @@
 package datamartapp.model;
 
-import datamartapp.model.users.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Data
-@Builder
 @Entity
 @Table(name = "connections")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Connection {
 
     @Id
@@ -42,12 +43,16 @@ public class Connection {
     @NotBlank(message = "empty display name")
     private String displayName;
 
-    @NotNull(message = "userId must exist")
+    @Column(name = "db_type")
+    @NotBlank(message = "db type is empty")
+    private String dbType;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
     @NotNull(message = "empty created")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime created;
 
 }

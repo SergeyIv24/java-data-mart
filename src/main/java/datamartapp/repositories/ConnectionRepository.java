@@ -1,6 +1,10 @@
 package datamartapp.repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import datamartapp.model.Connection;
+import org.springframework.stereotype.Repository;
 
-public interface ConnectionRepository {
+@Repository
+public interface ConnectionRepository extends JpaRepository <Connection, Long> {
 
 }
