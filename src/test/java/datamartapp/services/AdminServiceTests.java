@@ -1,22 +1,75 @@
-package datamartapp;
+package datamartapp.services;
 
 import datamartapp.exceptions.ValidationException;
+import datamartapp.model.users.User;
+import datamartapp.repositories.UserRepository;
 import datamartapp.services.implementation.UserAdminServiceImp;
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
 @SpringBootTest
+@Transactional
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class AdminServiceTests {
 
+    private final EntityManager em;
     private final UserAdminServiceImp userAdminService;
+    private final UserRepository userRepository;
+
+
+
+
+
+
+    @Test
+    void shouldLoadUserByUsername() {
+
+    }
+
+    @Test
+    void shouldReturnUserAfterCreating() {
+
+
+    }
+
+    @Test
+    void shouldNotAddUserWithFailedPassword() {
+
+    }
+
+    @Test
+    void shouldUpdateUser() {
+
+    }
+
+    @Test
+    void shouldNotUpdateUnknownUser() {
+
+    }
+
+    @Test
+    void shouldDeleteUser() {
+
+    }
+
+    @Test
+    void shouldGetUsers() {
+
+    }
+
+
+
+
+
 
 /*    @Test
     void shouldValidatePassword() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {

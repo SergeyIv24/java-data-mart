@@ -1,4 +1,4 @@
-package datamartapp.services.implementations;
+package datamartapp.services.implementation;
 
 import lombok.Getter;
 
