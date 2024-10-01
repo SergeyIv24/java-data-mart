@@ -1,33 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet"/>
 </head>
+
 <body>
+    <header>
+        <div class="header-row">
 
-    <form>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="login">Login</label>
-        <input type="text" id="login" required>
-        <label for="password">Password</label>
-        <input type="text", id="password" required>
-    </form>
+        </div>
+    </header>
 
+        <div class="main-container">
+            <div class="login-box">
+                <div class="login-box-header">
+                </div>
+                <div class="box">
+                    <form method="POST" action="login">
+                        <div class="description">Entry your username and login</div>
+                        <label for="username">Username:</label><br>
+                        <input name="username" type="text" id="username" required placeholder="Username"><br>
+                        <label for="password">Password</label><br>
+                        <input name="password" type="text" id="password" required placeholder="password"><br>
+                        <div class="btn-block">
+                            <input type="submit" value="Log In">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 </body>
+
+<!--<script th:src="@{/js/requests.js}"></script>-->
+
 </html>
 
-<!--<form action="" method="get" class="form-example">
-    <div class="form-example">
-        <label for="name">Enter your name: </label>
-        <input type="text" name="name" id="name1" required />
-    </div>
-    <div class="form-example">
-        <label for="email">Enter your email: </label>
-        <input type="email" name="email" id="email" required />
-    </div>
-    <div class="form-example">
-        <input type="submit" value="Subscribe!" />
-    </div>
-</form>-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet"/>
+</head>
+
+<body>
+    <h2>Log in</h2>
+    <form>
+        <label for="username">Username:</label><br>
+        <input name="username" type="text" id="username" required placeholder="Username"><br>
+        <label for="password">Password</label><br>
+        <input name="password" type="text" id="password" required placeholder="password"><br>
+        <input type="submit" value="Log In">
+    </form>
+</body>
+
+
+<script th:src="@{/js/requests.js}"></script>
+<form method="POST" action="login">
+
+</html>
+
+-->

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:href="@{/css/index-admin-style.css}" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="navigation">
+                Admin home page
+            </div>
+            <li role="presentation" class="usersItem">
+                <a role="button" href="">
+                    Users
+                </a>
+            </li>
+            <li role="presentation" class="usersItem">
+                <a role="button" href="">
+                    Connections
+                </a>
+            </li>
+            <li role="presentation" class="usersItem">
+                <a role="button" href="">
+                    Datasets
+                </a>
+            </li>
+            <li role="presentation" class="usersItem">
+                <a role="button" href="">
+                    Dashboards
+                </a>
+            </li>
+            <div class="logout">
+                <input type="submit" value="Log out">
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="navigation">
+
+    </div>
+    <div class="main-container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                "Dashboard"
+            </div>
+            <div class="dashboard-content">
+
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="charts-header">
+                "Charts"
+            </div>
+            <div class="charts-content">
+
+            </div>
+        </div>
+
+        <div class="sqlqueries">
+            <div class="sqlqueries-header">
+                "Saved SQL queries"
+            </div>
+            <div class="sqlqueries-content">
+
+            </div>
+
+        </div>
+
+        <div class="connections">
+            <div class="connections-header">
+                "Connections"
+            </div>
+            <div class="connections-content">
+
+            </div>
+
+        </div>
+
+        <div class="users">
+            <div class="users-header">
+                "Users"
+            </div>
+            <div class="users-content">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

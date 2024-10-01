@@ -1,4 +1,4 @@
-package datamartapp.controllers;
+package datamartapp.controllers.restControllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;

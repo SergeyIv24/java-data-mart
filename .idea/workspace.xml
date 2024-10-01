@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/HomeControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/LoginControllerTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="home" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="connections" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2lum5EyyOdMMSuI2X1Q9jlE4xed" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
+      <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\css" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="datamartapp.controllers.mvcControllers" />
+      <recent name="datamartapp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.HomeControllerTest.shouldGetUsersHomePage">
+    <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeControllerTest.shouldGetAdminsHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetAdminsHomePage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeControllerTest.shouldGetUsersHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetUsersHomePage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeControllerTest.shouldNotGetHomePageWithoutAuthorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotGetHomePageWithoutAuthorization" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.LoginControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotGetHomePageWithoutAuthorization" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HomeControllerTest.shouldGetUsersHomePage" />
+        <item itemvalue="JUnit.HomeControllerTest.shouldGetAdminsHomePage" />
+        <item itemvalue="JUnit.HomeControllerTest.shouldNotGetHomePageWithoutAuthorization" />
+        <item itemvalue="JUnit.HomeControllerTest" />
+        <item itemvalue="JUnit.LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="" />
+      <created>1726038154099</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1726038154099</updated>
+    </task>
+    <servers />
+  </component>
+</project>

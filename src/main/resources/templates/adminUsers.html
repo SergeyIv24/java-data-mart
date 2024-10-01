@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link th:href="@{/css/adminUsersStyle.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<nav>
+    <ul>
+        <li>Dashboards</li>
+        <li>Charts</li>
+        <li>Datasets</li>
+        <li>SQL</li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="header">
+        <h2>List Users</h2>
+        <button class="add-user-btn" onclick="openModal()">ADD USER <span>+</span></button>
+    </div>
+
+    <!-- Таблица пользователей -->
+    <table>
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>User Name</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ul : ${userList}">
+            <td th:text="${ul.firstname}"></td>
+            <td th:text="${ul.lastname}"></td>
+            <td th:text="${ul.username}"></td>
+            <td th:each="ur : ${ul.roles}" th:text="${ur.roleName}"></td>
+            <td>
+<!--                <button class="action-btn">🔍</button>-->
+                <button class="action-btn" id="updater" th:data-name="${ul.userId}" th:onclick="openModalUpdate()">✏️</button>
+                <button class="action-btn delete" th:onclick="handleDeleteUser([[${ul.userId}]])">🗑️</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="userModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">✖</button>
+        <h2>Add User</h2>
+        <form class="addUserForm" id="addUser">
+            <label for="firstname">First Name *</label>
+            <input name="firstname" type="text" id="firstname" placeholder="First Name">
+            <label for="lastname">Last Name *</label>
+            <input name="lastname" type="text" id="lastname" placeholder="Last Name">
+            <label for="username">User Name *</label>
+            <input name="username" type="text" id="username" placeholder="User Name">
+            <label for="password">Password *</label>
+            <input name="password" type="password" id="password" placeholder="Password">
+            <label for="role">Role *</label>
+            <select id="role">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div class="button-container">
+                <button type="submit" onclick="handleAddUser" class="save-btn">SAVE</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal" id="updateModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModalUpdate()">✖</button>
+        <h2>Update User</h2>
+        <form class="updateUserForm" id="updateUser">
+            <label for="firstname">First Name</label>
+            <input name="firstname" type="text" id="firstnameUpdate" placeholder="First Name">
+            <label for="lastname">Last Name</label>
+            <input name="lastname" type="text" id="lastnameUpdate" placeholder="Last Name">
+            <label for="username">User Name</label>
+            <input name="username" type="text" id="usernameUpdate" placeholder="User Name">
+            <label for="password">Password</label>
+            <input name="password" type="password" id="passwordUpdate" placeholder="Password">
+            <label for="role">Role</label>
+            <select id="roleUpdate">
+                <option value="" disabled selected>Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <div class="button-container">
+                <button onclick="handleUpdateUser(event)" class="save-btn">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/adminUserScripts.js}"></script>
+<script th:src="@{/js/requests.js}"></script>
+
+</body>
+</html>
+
