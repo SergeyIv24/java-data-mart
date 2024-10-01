@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/SpringSecurityTestConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/HomeControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/AdminControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/AdminControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/LoginControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,84 +68,85 @@
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\css" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="datamartapp.controllers.mvcControllers" />
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdminControllerTest">
-    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HomeControllerTest.shouldGetUsersHomePage">
+    <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminControllerTest.shouldDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HomeControllerTest.shouldGetAdminsHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
-      <option name="METHOD_NAME" value="shouldDeleteUser" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetAdminsHomePage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminControllerTest.shouldGetUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HomeControllerTest.shouldGetUsersHomePage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
-      <option name="METHOD_NAME" value="shouldGetUsers" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetUsersHomePage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminControllerTest.shouldNotCreateUserFailPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HomeControllerTest.shouldNotGetHomePageWithoutAuthorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
-      <option name="METHOD_NAME" value="shouldNotCreateUserFailPassword" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotGetHomePageWithoutAuthorization" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminControllerTest.shouldUpdateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
-      <option name="METHOD_NAME" value="shouldUpdateUser" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.LoginControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotGetHomePageWithoutAuthorization" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdminControllerTest" />
-        <item itemvalue="JUnit.AdminControllerTest.shouldGetUsers" />
-        <item itemvalue="JUnit.AdminControllerTest.shouldDeleteUser" />
-        <item itemvalue="JUnit.AdminControllerTest.shouldUpdateUser" />
-        <item itemvalue="JUnit.AdminControllerTest.shouldNotCreateUserFailPassword" />
+        <item itemvalue="JUnit.HomeControllerTest.shouldGetUsersHomePage" />
+        <item itemvalue="JUnit.HomeControllerTest.shouldGetAdminsHomePage" />
+        <item itemvalue="JUnit.HomeControllerTest.shouldNotGetHomePageWithoutAuthorization" />
+        <item itemvalue="JUnit.HomeControllerTest" />
+        <item itemvalue="JUnit.LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" />
       </list>
     </recent_temporary>
   </component>
