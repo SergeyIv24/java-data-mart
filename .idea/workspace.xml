@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/SpringSecurityTestConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/adminUserScripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/adminUserScripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/requests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/AdminServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/AdminServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/AdminControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/AdminControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="login" />
+        <entry key="$PROJECT_DIR$" value="connections" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,7 +56,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;login&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/SinglyLinkedList&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
@@ -72,66 +72,81 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DataMartApp">
-    <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
+  <component name="RunManager" selected="JUnit.AdminControllerTest">
+    <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.*" />
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <option name="PACKAGE_NAME" value="datamartapp" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTests.shouldCorrectValidateRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminControllerTest.shouldDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.*" />
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
-      <option name="METHOD_NAME" value="shouldCorrectValidateRole" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
+      <option name="METHOD_NAME" value="shouldDeleteUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTests.shouldValidatePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminControllerTest.shouldGetUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
-      <option name="PACKAGE_NAME" value="datamartapp" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.AdminServiceTests" />
-      <option name="METHOD_NAME" value="shouldValidatePassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
+      <option name="METHOD_NAME" value="shouldGetUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConnectionControllerTest.shouldNotAddConnectionFailedHost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdminControllerTest.shouldNotCreateUserFailPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.ConnectionControllerTest" />
-      <option name="METHOD_NAME" value="shouldNotAddConnectionFailedHost" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotCreateUserFailPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminControllerTest.shouldUpdateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.AdminControllerTest" />
+      <option name="METHOD_NAME" value="shouldUpdateUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DataMartApp" />
-        <item itemvalue="JUnit.AdminServiceTests.shouldCorrectValidateRole" />
-        <item itemvalue="JUnit.AdminServiceTests" />
-        <item itemvalue="JUnit.AdminServiceTests.shouldValidatePassword" />
-        <item itemvalue="JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost" />
+        <item itemvalue="JUnit.AdminControllerTest" />
+        <item itemvalue="JUnit.AdminControllerTest.shouldGetUsers" />
+        <item itemvalue="JUnit.AdminControllerTest.shouldDeleteUser" />
+        <item itemvalue="JUnit.AdminControllerTest.shouldUpdateUser" />
+        <item itemvalue="JUnit.AdminControllerTest.shouldNotCreateUserFailPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -157,95 +172,5 @@
       <updated>1726038154099</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$USER_HOME$/.jdks/corretto-21.0.3/lib/src.zip!/java.base/sun/security/ssl/SSLSessionImpl.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java</url>
-          <line>53</line>
-          <properties class="datamartapp.controllers.restControllers.AdminUserController" method="deleteUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
