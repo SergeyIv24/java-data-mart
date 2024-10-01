@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/HomeControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/LoginControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/ConnectionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ConnectionControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/volumes/postgres/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/volumes/postgres/base/16384/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/volumes/postgres/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/volumes/postgres/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/volumes/postgres/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/volumes/postgres/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/volumes/postgres/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/volumes/postgres/pg_wal/000000010000000000000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/volumes/postgres/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/volumes/postgres/postmaster.pid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +30,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="home" />
+    <option name="BRANCH" value="origin/connections" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -49,30 +52,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;login&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/study/Java/tasks/projects/java-explore-with-me",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47356322",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\css" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="datamartapp.controllers.restControllers" />
       <recent name="datamartapp.controllers.mvcControllers" />
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HomeControllerTest.shouldGetUsersHomePage">
+  <component name="RunManager" selected="Application.DataMartApp">
+    <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
@@ -136,29 +153,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.LoginControllerTest" />
-      <option name="METHOD_NAME" value="shouldNotGetHomePageWithoutAuthorization" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DataMartApp" />
         <item itemvalue="JUnit.HomeControllerTest.shouldGetUsersHomePage" />
         <item itemvalue="JUnit.HomeControllerTest.shouldGetAdminsHomePage" />
         <item itemvalue="JUnit.HomeControllerTest.shouldNotGetHomePageWithoutAuthorization" />
         <item itemvalue="JUnit.HomeControllerTest" />
-        <item itemvalue="JUnit.LoginControllerTest.shouldNotGetHomePageWithoutAuthorization" />
       </list>
     </recent_temporary>
   </component>
