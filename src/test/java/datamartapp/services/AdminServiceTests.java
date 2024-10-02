@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -74,7 +73,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldLoadUserByUsername() {
         UserDtoWithoutPass addedUser = userAdminService.addUser(addingUser, roleAdmin);
         UserDetails gotUser = userAdminService.loadUserByUsername(addedUser.getUsername());
@@ -82,7 +80,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldReturnUserAfterCreating() {
         UserDtoWithoutPass expectedUser = userMapper.toUserWithoutPass(userMapper.toUser(addingUser));
         UserDtoWithoutPass addedUser = userAdminService.addUser(addingUser, roleAdmin);
@@ -92,7 +89,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldNotAddUserWithFailedPassword() {
         addingUser.setPassword("");
         Assertions.assertThrows(ValidationException.class, () -> userAdminService.addUser(addingUser, roleAdmin));
@@ -111,7 +107,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldUpdateUserNames() {
         UserDtoWithoutPass addedUpdatingUser = userAdminService.addUser(addingUser, roleAdmin);
         UserDtoWithoutPass updatedUser = userAdminService.updateUser(updatingUserNames, addedUpdatingUser.getUserId());
@@ -122,7 +117,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldUpdatePassword() {
         UserDtoWithoutPass addedUpdatingUser = userAdminService.addUser(addingUser, roleAdmin);
         userAdminService.updateUser(updatingUserPassword,addedUpdatingUser.getUserId());
@@ -139,7 +133,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldDeleteUser() {
         UserDtoWithoutPass addedUpdatingUser = userAdminService.addUser(addingUser, roleAdmin);
         userAdminService.deleteUser(addedUpdatingUser.getUserId());
@@ -148,7 +141,6 @@ public class AdminServiceTests {
     }
 
     @Test
-    @Rollback
     void shouldGetUsers() {
         UserDtoWithoutPass firstAddedUser = userAdminService.addUser(firstUser, roleAdmin);
         UserDtoWithoutPass secondAddedUser = userAdminService.addUser(secondUser, roleUser);
