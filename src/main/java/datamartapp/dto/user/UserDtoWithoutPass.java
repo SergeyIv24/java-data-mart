@@ -5,11 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode
 @AllArgsConstructor
 public class UserDtoWithoutPass {
 

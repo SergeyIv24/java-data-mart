@@ -23,6 +23,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -63,7 +64,9 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
         }
 
         User addingUser = userMapper.toUser(userDtoWithPass);
-        addingUser.setRoles(Set.of(prepareRole(role)));
+        Set<Role> roles = new HashSet<>();
+        roles.add(prepareRole(role));
+        addingUser.setRoles(roles);
         addingUser.setPassword(encoder.encode(userDtoWithPass.getPassword()));
         return userMapper.toUserWithoutPass(userRepository.save(addingUser));
     }
@@ -92,8 +95,6 @@ public class UserAdminServiceImp implements UserAdminService, UserDetailsService
         Pageable pageable = PageRequest.of(startPage, size);
         Page<User> usersByPages = userRepository.findAll(pageable);
         return userMapper.toUserWithoutPassList(usersByPages.toList());
-        //return userMapper.toUserWithoutPassList(userRepository.findByUserNameContains(null, pageable));
-
     }
 
     private Role prepareRole(String roleName) {
