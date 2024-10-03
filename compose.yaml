@@ -5,9 +5,26 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./volumes/postgres:/var/lib/postgresql/data
+      - ./volumes/data-mart-db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=dataMart
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=12345
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 5s
+      retries: 10
+      
+  db-store:
+    image: postgres:16.1
+    container_name: storage-db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./volumes/storage-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=storage
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=12345
     healthcheck:

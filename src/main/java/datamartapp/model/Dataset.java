@@ -4,31 +4,31 @@ import datamartapp.model.users.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-import java.time.LocalDateTime;
-
-//todo maybe add new fields, needs to elaborate more detailed
-
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @Builder
 @Entity
 @Table(name = "datasets")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Dataset {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-/*    //Todo relation with connection id
-    private Connection connection;*/
+    @ManyToOne
+    @JoinColumn(name = "connection_id")
+    private Connection connection;
 
-    @NotBlank(message = "empty query")
+    @NotBlank(message = "empty scheme")
     private String scheme;
 
     @Column(name = "table_name")
@@ -36,5 +36,5 @@ public class Dataset {
     private String tableName;
 
     @NotNull(message = "empty created")
-    private LocalDateTime created;
+    private String created;
 }

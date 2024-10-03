@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapperUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/services/AdminServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/AdminServiceTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/DataMartApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/DataMartApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/DatasetDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -40,6 +50,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
@@ -54,7 +67,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;datasets&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -74,7 +87,20 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AdminServiceTests">
+  <component name="RunManager" selected="Application.DataMartApp">
+    <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdminServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
@@ -122,22 +148,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTests.shouldNotUpdateUnknownUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="datamartapp.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.services" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.services.AdminServiceTests" />
-      <option name="METHOD_NAME" value="shouldNotUpdateUnknownUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AdminServiceTests.shouldUpdatePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
@@ -156,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DataMartApp" />
         <item itemvalue="JUnit.AdminServiceTests" />
         <item itemvalue="JUnit.AdminServiceTests.shouldGetUsers" />
         <item itemvalue="JUnit.AdminServiceTests.shouldDeleteUser" />
         <item itemvalue="JUnit.AdminServiceTests.shouldUpdatePassword" />
-        <item itemvalue="JUnit.AdminServiceTests.shouldNotUpdateUnknownUser" />
       </list>
     </recent_temporary>
   </component>
