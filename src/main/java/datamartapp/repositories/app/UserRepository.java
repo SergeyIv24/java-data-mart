@@ -1,4 +1,4 @@
-package datamartapp.repositories;
+package datamartapp.repositories.app;
 
 import datamartapp.model.users.User;
 import org.springframework.data.domain.Page;

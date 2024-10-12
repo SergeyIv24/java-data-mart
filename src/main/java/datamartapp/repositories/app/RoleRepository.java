@@ -1,4 +1,4 @@
-package datamartapp.repositories;
+package datamartapp.repositories.app;
 
 import datamartapp.model.users.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

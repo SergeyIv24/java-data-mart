@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_30_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_30__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/DatasetsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/DatasetsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/ConnectionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ConnectionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/DatasetsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/DatasetsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/SqlQueriesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/SqlQueriesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/ViewsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ViewsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +85,7 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test.shouldValidateDataSource">
+  <component name="RunManager" selected="Application.DataMartApp">
     <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
       <module name="data-mart-app" />
@@ -170,8 +164,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test.shouldValidateDataSource" />
         <item itemvalue="Application.DataMartApp" />
+        <item itemvalue="JUnit.test.shouldValidateDataSource" />
         <item itemvalue="JUnit.AdminServiceTests" />
         <item itemvalue="JUnit.AdminServiceTests.shouldGetUsers" />
         <item itemvalue="JUnit.AdminServiceTests.shouldDeleteUser" />

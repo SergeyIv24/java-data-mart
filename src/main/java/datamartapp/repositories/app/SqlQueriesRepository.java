@@ -1,4 +1,4 @@
-package datamartapp.repositories;
+package datamartapp.repositories.app;
 
 public interface SqlQueriesRepository {
 }

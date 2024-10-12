@@ -6,7 +6,7 @@ import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.mappers.ConnectionMapper;
 import datamartapp.model.Connection;
-import datamartapp.repositories.ConnectionRepository;
+import datamartapp.repositories.app.ConnectionRepository;
 import datamartapp.services.ConnectionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

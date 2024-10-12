@@ -1,4 +1,4 @@
-package datamartapp.repositories;
+package datamartapp.repositories.app;
 
 import org.springframework.stereotype.Repository;
 

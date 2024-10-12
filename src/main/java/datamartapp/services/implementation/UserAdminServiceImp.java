@@ -10,7 +10,7 @@ import datamartapp.exceptions.ValidationException;
 import datamartapp.mappers.UserMapper;
 import datamartapp.model.users.Role;
 import datamartapp.model.users.User;
-import datamartapp.repositories.UserRepository;
+import datamartapp.repositories.app.UserRepository;
 import datamartapp.services.UserAdminService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
