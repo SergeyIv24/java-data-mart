@@ -7,6 +7,7 @@ import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.model.Connection;
 import datamartapp.repositories.app.ConnectionRepository;
+import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,14 +24,15 @@ public class DatasetsServiceImp implements DatasetsService {
 
     //private final DatasetsRepository datasetsRepository;
     private final ConnectionRepository connectionRepository;
+    private final DatasetsInDataMartRepository datasetsInDataMartRepository;
 
     @Override
     public DatasetDtoResponse addDataset(DatasetDtoRequest datasetDtoRequest) {
+        //todo validate datasets conflict
         Connection connection = validateConnection(datasetDtoRequest.getConnection());
         isTableExistedInSourceDb(connection, datasetDtoRequest);
-
-        //todo check table in datamart
-        //todo validate datasets
+        isTableExistedInDataMartDb(datasetDtoRequest);
+        //todo save dataset
 
         return null;
     }
@@ -76,9 +78,15 @@ public class DatasetsServiceImp implements DatasetsService {
 
     }
 
-    private void isTableExistedInDataMartDb() {
-
-
+    private void isTableExistedInDataMartDb(DatasetDtoRequest datasetDtoRequest) {
+        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
+                datasetDtoRequest.getTableName())) {
+            log.warn("Table with name = {}, on schema = {} is already existed in datamartApp",
+                    datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme());
+            throw new ValidationException(String
+                    .format("Table with name = %s, on schema = %s is already existed in datamartApp",
+                    datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme()));
+        }
     }
 
     private void isThereDataset() {
