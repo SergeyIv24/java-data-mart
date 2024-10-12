@@ -33,7 +33,7 @@ public class DatamartDbConfiguration {
     private final Environment environment;
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource datamartDataSource() {
         return DataSourceBuilder
                 .create()
                 .driverClassName(environment.getRequiredProperty("jdbc.driverClassName"))
@@ -41,6 +41,24 @@ public class DatamartDbConfiguration {
                 .password(environment.getRequiredProperty("jdbc.password"))
                 .url(environment.getRequiredProperty("jdbc.url"))
                 .build();
+    }
+
+    @Bean(name = ENTITY_MANAGER_FACTORY)
+    public LocalContainerEntityManagerFactoryBean datamartEntityManagerFactory(DataSource dataSource) {
+        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        final LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource);
+        emf.setJpaVendorAdapter(vendorAdapter);
+        emf.setPackagesToScan("datamartapp");
+        emf.setJpaProperties(hibernateProperties());
+        return emf;
+    }
+
+    @Bean(name = TRANSACTIONAL_MANAGER)
+    public JpaTransactionManager datamartTransactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        return transactionManager;
     }
 
     private Properties hibernateProperties() {
@@ -53,26 +71,6 @@ public class DatamartDbConfiguration {
                 .getRequiredProperty("spring.jpa.properties.hibernate.format_sql"));
         return properties;
     }
-
-    @Bean(name = ENTITY_MANAGER_FACTORY)
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        final LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource);
-        emf.setJpaVendorAdapter(vendorAdapter);
-        emf.setPackagesToScan("datamartapp");
-        emf.setJpaProperties(hibernateProperties());
-        return emf;
-    }
-
-    @Bean(name = TRANSACTIONAL_MANAGER)
-    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
-        return transactionManager;
-    }
-
-
 
 
 }

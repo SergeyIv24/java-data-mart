@@ -33,7 +33,7 @@ public class AppDatabaseConfiguration {
 
     @Primary
     @Bean
-    public DataSource dataSource() {
+    public DataSource appDataSource() {
         return DataSourceBuilder
                 .create()
                 .driverClassName(environment.getRequiredProperty("jdbc.driverClassName"))
@@ -41,6 +41,26 @@ public class AppDatabaseConfiguration {
                 .password(environment.getRequiredProperty("jdbc.password"))
                 .url(environment.getRequiredProperty("jdbc.url"))
                 .build();
+    }
+
+    @Primary
+    @Bean(name = ENTITY_MANAGER_FACTORY)
+    public LocalContainerEntityManagerFactoryBean appEntityManagerFactory(DataSource dataSource) {
+        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        final LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
+        emf.setDataSource(dataSource);
+        emf.setJpaVendorAdapter(vendorAdapter);
+        emf.setPackagesToScan("datamartapp");
+        emf.setJpaProperties(hibernateProperties());
+        return emf;
+    }
+
+    @Primary
+    @Bean(name = TRANSACTIONAL_MANAGER)
+    public JpaTransactionManager appTransactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        return transactionManager;
     }
 
     private Properties hibernateProperties() {
@@ -52,23 +72,5 @@ public class AppDatabaseConfiguration {
         properties.put("spring.jpa.properties.hibernate.format_sql", environment
                 .getRequiredProperty("spring.jpa.properties.hibernate.format_sql"));
         return properties;
-    }
-
-    @Bean(name = ENTITY_MANAGER_FACTORY)
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
-        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        final LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(dataSource);
-        emf.setJpaVendorAdapter(vendorAdapter);
-        emf.setPackagesToScan("datamartapp");
-        emf.setJpaProperties(hibernateProperties());
-        return emf;
-    }
-
-    @Bean(name = TRANSACTIONAL_MANAGER)
-    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory);
-        return transactionManager;
     }
 }
