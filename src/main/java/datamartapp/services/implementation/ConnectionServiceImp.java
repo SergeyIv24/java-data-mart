@@ -119,15 +119,15 @@ public class ConnectionServiceImp implements ConnectionService {
 
     }
 
-    private String prepareURL(Connection connection) {
+/*    private String prepareURL(Connection connection) {
         return "jdbc:" + connection.getDbType() + "://" + connection.getHost() +
                 ":" + connection.getPort() + "/" + connection.getDbName();
-    }
+    }*/
 
     private void validateConnection(Connection connection) {
         validateConnectionData(connection);
         try (java.sql.Connection conn =
-                     DriverManager.getConnection(prepareURL(connection),
+                     DriverManager.getConnection(Utils.prepareURL(connection),
                              connection.getDbUser(), connection.getDbPassword())) {
             log.info("Successful connection to database");
         } catch (SQLException e) {

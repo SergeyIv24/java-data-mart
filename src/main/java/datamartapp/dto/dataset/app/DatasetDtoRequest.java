@@ -1,4 +1,4 @@
-package datamartapp.dto.dataset;
+package datamartapp.dto.dataset.app;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

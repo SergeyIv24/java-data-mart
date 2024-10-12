@@ -5,21 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoUpdate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapperUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_30_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_30__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/DataMartApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/DataMartApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/DatasetDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/DatasetDtoUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/DatasetsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/DatasetsRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,19 +66,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;datasets&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "datasets",
+    "last_opened_file_path": "C:/study/Java/tasks/projects/java-explore-with-me",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47356322",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
@@ -87,7 +91,7 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DataMartApp">
+  <component name="RunManager" selected="JUnit.test.shouldValidateDataSource">
     <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
       <module name="data-mart-app" />
@@ -148,17 +152,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTests.shouldUpdatePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.shouldValidateDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.services.*" />
+          <option name="PATTERN" value="datamartapp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.services" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.services.AdminServiceTests" />
-      <option name="METHOD_NAME" value="shouldUpdatePassword" />
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
+      <option name="METHOD_NAME" value="shouldValidateDataSource" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.shouldValidateDataSource" />
         <item itemvalue="Application.DataMartApp" />
         <item itemvalue="JUnit.AdminServiceTests" />
         <item itemvalue="JUnit.AdminServiceTests.shouldGetUsers" />
         <item itemvalue="JUnit.AdminServiceTests.shouldDeleteUser" />
-        <item itemvalue="JUnit.AdminServiceTests.shouldUpdatePassword" />
       </list>
     </recent_temporary>
   </component>
@@ -184,5 +188,25 @@
       <updated>1726038154099</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>44</line>
+          <properties class="datamartapp.test" method="shouldValidateDataSource">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

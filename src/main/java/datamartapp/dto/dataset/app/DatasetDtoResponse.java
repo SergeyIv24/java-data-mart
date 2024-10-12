@@ -1,4 +1,4 @@
-package datamartapp.dto.dataset;
+package datamartapp.dto.dataset.app;
 
 import datamartapp.model.Connection;
 import datamartapp.model.users.User;

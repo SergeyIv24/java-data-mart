@@ -1,4 +1,4 @@
-package datamartapp.dto.dataset;
+package datamartapp.dto.dataset.app;
 
 import lombok.Builder;
 import lombok.Data;

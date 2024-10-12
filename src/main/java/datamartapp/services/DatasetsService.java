@@ -1,8 +1,8 @@
 package datamartapp.services;
 
-import datamartapp.dto.dataset.DatasetDtoRequest;
-import datamartapp.dto.dataset.DatasetDtoResponse;
-import datamartapp.dto.dataset.DatasetDtoUpdate;
+import datamartapp.dto.dataset.app.DatasetDtoRequest;
+import datamartapp.dto.dataset.app.DatasetDtoResponse;
+import datamartapp.dto.dataset.app.DatasetDtoUpdate;
 
 import java.util.List;
 
