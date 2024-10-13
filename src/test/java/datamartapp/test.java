@@ -30,7 +30,7 @@ public class test {
         connection = Connection
                 .builder()
                 .host("127.0.0.1")
-                .port(5433L)
+                .port(5434L)
                 .dbName("test")
                 .dbUser("user")
                 .dbPassword("123")
@@ -44,5 +44,11 @@ public class test {
     @Test
     void shouldValidateDataSource() {
         datasetsServiceImp.isTableExistedInSourceDb(connection, datasetDtoRequest);
+    }
+
+    @Test
+    void test() {
+        //datasetsServiceImp.writeCsvFile(connection);
+        datasetsServiceImp.prepareRuntimeCommand();
     }
 }

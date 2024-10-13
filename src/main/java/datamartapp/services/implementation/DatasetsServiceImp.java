@@ -11,8 +11,13 @@ import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.*;
 import java.util.List;
 import java.util.Optional;
@@ -22,9 +27,12 @@ import java.util.Optional;
 @Slf4j
 public class DatasetsServiceImp implements DatasetsService {
 
+    private String csvRelativePath = "/resources/temporalCsv";
+    private File csvDirectory = new File(csvRelativePath);
+
     //private final DatasetsRepository datasetsRepository;
     private final ConnectionRepository connectionRepository;
-    private final DatasetsInDataMartRepository datasetsInDataMartRepository;
+    //private final DatasetsInDataMartRepository datasetsInDataMartRepository;
 
     @Override
     public DatasetDtoResponse addDataset(DatasetDtoRequest datasetDtoRequest) {
@@ -51,6 +59,49 @@ public class DatasetsServiceImp implements DatasetsService {
     public List<DatasetDtoResponse> getDatasets(int from, int size) {
         return null;
     }
+
+    public void writeCsvFile(Connection connection) {
+
+
+
+    }
+    //docker exec -it test-db psql -U user -W test
+    // \copy sales to 'test.csv' CSV HEADER
+
+    //docker exec -u user test-db -d test -c "\copy sales to 'test.csv' CSV HEADER" > test.csv
+
+    public String prepareStringCommand(String user, String containerName, String dbName, String tableName) {
+        //return "docker exec -u " + user + " test-db -d test -c \"\\copy sales to 'test.csv' CSV HEADER\" > test.csv";
+        return "docker exec -u " + user + " " + containerName +
+                " -d " + dbName + "-c \"\\copy " + tableName + " to '" + tableName + "csv' CSV HEADER\" > "
+                + tableName + ".csv";
+    }
+
+    public ProcessBuilder prepareRuntimeCommand(Connection connection, DatasetDtoRequest request) throws IOException {
+        File csvDirectory = new File("/resources/temporalCsv");
+        ProcessBuilder processBuilder = new ProcessBuilder();
+
+
+        processBuilder.command("cmd.exe", "/c", prepareStringCommand(connection.getDbUser(),
+                "test-db",
+                connection.getDbName(),
+                request.getTableName())); //todo chande container name "docker exec -u user test-db -d test -c \"\\copy sales to 'test.csv' CSV HEADER\" > test.csv"
+        processBuilder.directory(csvDirectory);
+        Process process = processBuilder.start();
+        BufferedReader bf = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        return null;
+
+    }
+
+    public void makeCopyInCsvOnServer(ProcessBuilder processBuilder) {
+
+    }
+
+    public void copyCsvFileFromServerInAppDirectory() {
+
+    }
+
+
 
     public void isTableExistedInSourceDb(Connection connection, DatasetDtoRequest datasetDtoRequest) {
         try (java.sql.Connection connToDb = DriverManager
@@ -79,14 +130,14 @@ public class DatasetsServiceImp implements DatasetsService {
     }
 
     private void isTableExistedInDataMartDb(DatasetDtoRequest datasetDtoRequest) {
-        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
+/*        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
                 datasetDtoRequest.getTableName())) {
             log.warn("Table with name = {}, on schema = {} is already existed in datamartApp",
                     datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme());
             throw new ValidationException(String
                     .format("Table with name = %s, on schema = %s is already existed in datamartApp",
                     datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme()));
-        }
+        }*/
     }
 
     private void isThereDataset() {
