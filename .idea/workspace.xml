@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,19 +51,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;datasets&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/projects/java-explore-with-me&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "datasets",
+    "last_opened_file_path": "C:/study/Java/tasks/differentTestesTheory",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.47356322",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
@@ -77,7 +76,7 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DataMartApp">
+  <component name="RunManager" selected="JUnit.test.shouldParseHeaders">
     <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
       <module name="data-mart-app" />
@@ -91,38 +90,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdminServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="datamartapp.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.services" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.services.AdminServiceTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminServiceTests.shouldGetUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="datamartapp.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.services" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.services.AdminServiceTests" />
-      <option name="METHOD_NAME" value="shouldGetUsers" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.shouldValidateDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.shouldParseHeaders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
@@ -132,7 +100,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="datamartapp" />
       <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
-      <option name="METHOD_NAME" value="shouldValidateDataSource" />
+      <option name="METHOD_NAME" value="shouldParseHeaders" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,13 +122,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test.testCopy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
+      <option name="METHOD_NAME" value="testCopy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.testRuntimeBuilder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
+      <option name="METHOD_NAME" value="testRuntimeBuilder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DataMartApp" />
+        <item itemvalue="JUnit.test.shouldParseHeaders" />
+        <item itemvalue="JUnit.test.testCopy" />
         <item itemvalue="JUnit.test.test" />
-        <item itemvalue="JUnit.test.shouldValidateDataSource" />
-        <item itemvalue="JUnit.AdminServiceTests" />
-        <item itemvalue="JUnit.AdminServiceTests.shouldGetUsers" />
+        <item itemvalue="JUnit.test.testRuntimeBuilder" />
+        <item itemvalue="Application.DataMartApp" />
       </list>
     </recent_temporary>
   </component>
@@ -180,49 +180,55 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>45</line>
+          <line>47</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="22" />
+          <line>54</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>44</line>
-          <properties class="datamartapp.test" method="shouldValidateDataSource">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
+          <line>55</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.ProcessBuilder" memberName="command" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

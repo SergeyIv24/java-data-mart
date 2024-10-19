@@ -1,5 +1,6 @@
 package datamartapp.services.implementation;
 
+import datamartapp.common.GeneralConstants;
 import datamartapp.dto.dataset.app.DatasetDtoRequest;
 import datamartapp.dto.dataset.app.DatasetDtoResponse;
 import datamartapp.dto.dataset.app.DatasetDtoUpdate;
@@ -7,27 +8,21 @@ import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.model.Connection;
 import datamartapp.repositories.app.ConnectionRepository;
-import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.sql.*;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class DatasetsServiceImp implements DatasetsService {
 
-    private String csvRelativePath = "/resources/temporalCsv";
+    private String csvRelativePath = "C:\\study\\Java\\tasks\\Data mart\\TemporalCsv";//"/resources/temporalCsv";
     private File csvDirectory = new File(csvRelativePath);
 
     //private final DatasetsRepository datasetsRepository;
@@ -60,48 +55,50 @@ public class DatasetsServiceImp implements DatasetsService {
         return null;
     }
 
-    public void writeCsvFile(Connection connection) {
 
-
-
-    }
-    //docker exec -it test-db psql -U user -W test
-    // \copy sales to 'test.csv' CSV HEADER
-
-    //docker exec -u user test-db -d test -c "\copy sales to 'test.csv' CSV HEADER" > test.csv
-
-    public String prepareStringCommand(String user, String containerName, String dbName, String tableName) {
-        //return "docker exec -u " + user + " test-db -d test -c \"\\copy sales to 'test.csv' CSV HEADER\" > test.csv";
-        return "docker exec -u " + user + " " + containerName +
-                " -d " + dbName + "-c \"\\copy " + tableName + " to '" + tableName + "csv' CSV HEADER\" > "
-                + tableName + ".csv";
+    //docker exec -i test-db psql -U user -W test -c "COPY sales TO STDOUT WITH CSV HEADER" > test.csv
+    public String prepareStringCommandCopyFromServer(String user, String containerName, String dbName, String tableName) {
+        String command = "docker exec -i %s psql -U %s -W %s -c \"COPY %s TO STDOUT WITH CSV HEADER\" > %s.csv";
+        return String.format(command, containerName, user, dbName, tableName, tableName);
     }
 
-    public ProcessBuilder prepareRuntimeCommand(Connection connection, DatasetDtoRequest request) throws IOException {
-        File csvDirectory = new File("/resources/temporalCsv");
+    public ProcessBuilder prepareRuntimeCommand(Connection connection, DatasetDtoRequest request) {
         ProcessBuilder processBuilder = new ProcessBuilder();
-
-
-        processBuilder.command("cmd.exe", "/c", prepareStringCommand(connection.getDbUser(),
+        processBuilder.command("cmd.exe", "/c", prepareStringCommandCopyFromServer(connection.getDbUser(),
                 "test-db",
                 connection.getDbName(),
-                request.getTableName())); //todo chande container name "docker exec -u user test-db -d test -c \"\\copy sales to 'test.csv' CSV HEADER\" > test.csv"
+                request.getTableName()));
+        processBuilder.redirectErrorStream(true);
         processBuilder.directory(csvDirectory);
+        return processBuilder;
+    }
+
+    public void copyCsvFileFromServerInAppDirectory(ProcessBuilder processBuilder, Connection connection) throws IOException {
         Process process = processBuilder.start();
-        BufferedReader bf = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        return null;
-
+        BufferedWriter writer = process.outputWriter();
+        writer.write(connection.getDbPassword() + "\n");
+        writer.flush();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String cmdResponse = readCmdResponse(reader);
+        writer.close();
+        reader.close();
+        checkCmdResponse(cmdResponse);
     }
 
-    public void makeCopyInCsvOnServer(ProcessBuilder processBuilder) {
-
+    public String readCmdResponse(BufferedReader reader) throws IOException {
+        String cmdResponse = null;
+        while (reader.read() != -1) {
+            cmdResponse = reader.readLine();
+        }
+        return cmdResponse;
     }
 
-    public void copyCsvFileFromServerInAppDirectory() {
-
+    public void checkCmdResponse(String cmdResponse) {
+        if (cmdResponse.isEmpty()) {
+            log.warn("");
+            throw new ValidationException("");
+        }
     }
-
-
 
     public void isTableExistedInSourceDb(Connection connection, DatasetDtoRequest datasetDtoRequest) {
         try (java.sql.Connection connToDb = DriverManager
@@ -128,7 +125,7 @@ public class DatasetsServiceImp implements DatasetsService {
         }
 
     }
-
+    //DO NOT DELETE
     private void isTableExistedInDataMartDb(DatasetDtoRequest datasetDtoRequest) {
 /*        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
                 datasetDtoRequest.getTableName())) {
@@ -160,6 +157,91 @@ public class DatasetsServiceImp implements DatasetsService {
 
     private Optional<Connection> getConnectionById(long connectionId) {
         return connectionRepository.findById(connectionId);
+    }
+
+    public String parseCsvColumns(String tableName, int lineNumber) {
+        String headers = null;
+        String filePath = csvRelativePath + "\\" + tableName + ".csv";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            for (int i = 1; i <= lineNumber; i++) {
+                headers = reader.readLine();
+            }
+        } catch (IOException e) {
+            log.warn("");
+            throw new ValidationException("");
+        }
+        return headers;
+    }
+
+    public String getHeaders(String tableName) {
+        return parseCsvColumns(tableName, 1);
+    }
+
+    public String getFirstData(String tableName) {
+        return parseCsvColumns(tableName, 2);
+    }
+
+    public List<String> prepareHeadersList(String headers) {
+        return Arrays.asList(headers.split(","));
+    }
+
+    public Map<String, String> prepareColumnsByTypes(List<String> headers, List<String> firstData) {
+        Map<String, String> columnsByTypes = new HashMap<>();
+
+        for (int i = 0; i < headers.size(); i++) {
+            if (isItKeyColumn(headers.get(i))) {
+                columnsByTypes.put(headers.get(i), "INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY");
+                continue;
+            }
+            String type = defineDataType(firstData.get(i));
+            if (type.equalsIgnoreCase("String")) {
+                columnsByTypes.put(headers.get(i), "VARCHAR");
+            }
+            if (type.equalsIgnoreCase("Number")) {
+                columnsByTypes.put(headers.get(i), "BIGINT");
+            }
+            if (type.equalsIgnoreCase("Data")) {
+                columnsByTypes.put(headers.get(i), "TIMESTAMP");
+            }
+        }
+        return columnsByTypes;
+    }
+
+    public boolean isItKeyColumn(String header) {
+        return header.contains("id");
+    }
+
+    public String defineDataType(String valueInColumn) {
+        try {
+            long number = Long.parseLong(valueInColumn);
+            return "Number";
+        } catch (NumberFormatException e) {
+            log.debug("Not number"); //todo
+        }
+
+
+        if (valueInColumn.matches(GeneralConstants.dataPatternWithTimeForMatching)
+                || valueInColumn.matches(GeneralConstants.dataPatternWithoutTimeForMatching)) {
+            return "Data";
+        } else {
+            return "String";
+        }
+    }
+
+    public String convertDataToGeneralFormat(String data) {
+        return null;
+    }
+
+    public String prepareSqlForCreatingTable(String tableName, Map<String, String> columnsByTypes) {
+        String firstLine = String.format("CREATE TABLE IF NOT EXISTS %s ( ", tableName);
+        StringBuilder query = new StringBuilder();
+
+
+        String query1 = "CREATE TABLE IF NOT EXISTS %s ( " +
+                "role_id INTEGER GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, " +
+                "role_name VARCHAR NOT NULL " +
+                ");";
+        return null;
     }
 
 }
