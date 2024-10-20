@@ -1,24 +1,22 @@
 package datamartapp.services.implementation;
 
-import datamartapp.config.Config;
 import datamartapp.config.DatamartDbConfiguration;
 import datamartapp.dto.dataset.app.DatasetDtoRequest;
 import datamartapp.dto.dataset.app.DatasetDtoResponse;
 import datamartapp.dto.dataset.app.DatasetDtoUpdate;
 import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
+import datamartapp.mappers.DatasetMapper;
+import datamartapp.mappers.UserMapper;
 import datamartapp.model.Connection;
+import datamartapp.model.Dataset;
 import datamartapp.repositories.app.ConnectionRepository;
 import datamartapp.repositories.app.DatasetsRepository;
 import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.PropertySource;
@@ -42,6 +40,7 @@ public class DatasetsServiceImp implements DatasetsService {
     private final ConnectionRepository connectionRepository;
     private final DatasetsRepository datasetsRepository;
     private final DatasetsInDataMartRepository datasetsInDataMartRepository;
+    private final DatasetMapper datasetMapper;
 
     @Autowired
     @Qualifier(DatamartDbConfiguration.JDBC_TEMPLATE_NAME)
@@ -49,13 +48,14 @@ public class DatasetsServiceImp implements DatasetsService {
 
     @Override
     public DatasetDtoResponse addDataset(DatasetDtoRequest datasetDtoRequest) {
-        //todo validate datasets conflict
         Connection connection = validateConnection(datasetDtoRequest.getConnection());
         isTableExistedInSourceDb(connection, datasetDtoRequest);
         isTableExistedInDataMartDb(datasetDtoRequest);
-        //todo save dataset
-
-        return null;
+        saveInDataMart(connection, datasetDtoRequest);
+        return datasetMapper
+                .toDatasetDtoResponse(datasetsRepository
+                        .save(datasetMapper
+                                .toDataset(datasetDtoRequest)));
     }
 
     @Override
@@ -81,13 +81,23 @@ public class DatasetsServiceImp implements DatasetsService {
         try {
             copyCsvFileFromServerInAppDirectory(builder, connection);
         } catch (IOException e) {
-            log.warn("");
-            throw new ValidationException("");
+            log.warn("Can not parse csv");
+            throw new ValidationException("Can not parse csv");
         }
         String query = csvParser.makeSqlQueryForCreatingTable(datasetDtoRequest.getTableName());
         jdbcTemplate.execute(query);
+        String headers = csvParser.getHeaders(datasetDtoRequest.getTableName());
+        importDataToTableFromScv(datasetDtoRequest.getTableName(), headers);
     }
 
+    private void importDataToTableFromScv(String tableName, String headers) {
+        String queryTemplate = "COPY %s (%s) " +
+                "FROM '/var/lib/postgresql/data/csv/%s.csv' " +
+                "DELIMITER ',' " +
+                "CSV HEADER encoding 'windows-1251';";
+        String query = String.format(queryTemplate, tableName, headers, tableName);
+        jdbcTemplate.execute(query);
+    }
 
     //docker exec -i test-db psql -U user -W test -c "COPY sales TO STDOUT WITH CSV HEADER" > test.csv
     private String prepareStringCommandCopyFromServer(String user, String containerName, String dbName, String tableName) {
@@ -128,8 +138,8 @@ public class DatasetsServiceImp implements DatasetsService {
 
     private void checkCmdResponse(String cmdResponse) {
         if (cmdResponse.isEmpty()) {
-            log.warn("");
-            throw new ValidationException("");
+            log.warn("Wrong cmd response");
+            throw new ValidationException("Wrong cmd response");
         }
     }
 
@@ -191,16 +201,4 @@ public class DatasetsServiceImp implements DatasetsService {
     private Optional<Connection> getConnectionById(long connectionId) {
         return connectionRepository.findById(connectionId);
     }
-
-
-    public String convertDataToGeneralFormat(String data) {
-        return null;
-    }
-
 }
-
-
-
-/*    @Value("${app.csvRelativePath:C:\\study\\Java\\tasks\\Data mart\\TemporalCsv}")
-    private final String csvRelativePath = ""; //= "C:\\study\\Java\\tasks\\Data mart\\TemporalCsv";//"/resources/temporalCsv";
-    private File csvDirectory = new File(csvRelativePath);*/

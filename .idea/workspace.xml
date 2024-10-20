@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lombok.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/CsvParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/CsvParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/datamartDb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datamartDb.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temporalCsv/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

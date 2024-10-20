@@ -20,7 +20,8 @@ public class CsvParser {
 
     private final String csvRelativePath;
 
-    public CsvParser(@Value("${app.csvRelativePath:C:\\study\\Java\\tasks\\Data mart\\TemporalCsv}")
+    public CsvParser(@Value("${app.csvRelativePath:" +
+            "C:\\study\\Java\\tasks\\Data mart\\java-data-mart\\src\\main\\resources\\temporalCsv}")
                      String csvRelativePath) {
         this.csvRelativePath = csvRelativePath;
     }
@@ -40,13 +41,13 @@ public class CsvParser {
                 headers = reader.readLine();
             }
         } catch (IOException e) {
-            log.warn("");
-            throw new ValidationException("");
+            log.warn("Can not parse csv");
+            throw new ValidationException("Can not parse csv");
         }
         return headers;
     }
 
-    private String getHeaders(String tableName) {
+    public String getHeaders(String tableName) {
         return parseCsvColumns(tableName, 1);
     }
 
@@ -86,10 +87,28 @@ public class CsvParser {
 
     private String defineDataType(String valueInColumn) {
         try {
+            int number = Integer.parseInt(valueInColumn);
+            return "Number";
+        } catch (NumberFormatException e) {
+            log.debug("{} is not integer", valueInColumn);
+        }
+        try {
             long number = Long.parseLong(valueInColumn);
             return "Number";
         } catch (NumberFormatException e) {
-            log.debug("Not number"); //todo
+            log.debug("{} is not long", valueInColumn);
+        }
+        try {
+            float number = Float.parseFloat(valueInColumn);
+            return "Number";
+        } catch (NumberFormatException e) {
+            log.debug("{} is not float", valueInColumn);
+        }
+        try {
+            double number = Double.parseDouble(valueInColumn);
+            return "Number";
+        } catch (NumberFormatException e) {
+            log.debug("{} is not double", valueInColumn);
         }
 
         if (valueInColumn.matches(GeneralConstants.dataPatternWithTimeForMatching)
@@ -116,5 +135,9 @@ public class CsvParser {
         }
         query.append(" );");
         return query.toString();
+    }
+
+    public String convertDataToGeneralFormat(String data) {
+        return null;
     }
 }
