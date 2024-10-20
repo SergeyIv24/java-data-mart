@@ -1,6 +1,7 @@
 package datamartapp.config;
 
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -26,9 +27,9 @@ import java.util.Properties;
 @RequiredArgsConstructor
 public class DatamartDbConfiguration {
 
-    static final String ENTITY_MANAGER_FACTORY = "dataMartEntityManagerFactory";
-    static final String TRANSACTIONAL_MANAGER = "dataMartTransactionalManager";
-    static final String JPA_REPOSITORY_PACKAGE = "datamartapp.repositories.datamart";
+    public static final String ENTITY_MANAGER_FACTORY = "dataMartEntityManagerFactory";
+    public static final String TRANSACTIONAL_MANAGER = "dataMartTransactionalManager";
+    public static final String JPA_REPOSITORY_PACKAGE = "datamartapp.repositories.datamart";
 
     private final Environment environment;
 

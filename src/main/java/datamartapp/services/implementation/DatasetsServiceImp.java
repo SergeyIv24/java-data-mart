@@ -1,5 +1,6 @@
 package datamartapp.services.implementation;
 
+import datamartapp.config.DatamartDbConfiguration;
 import datamartapp.dto.dataset.app.DatasetDtoRequest;
 import datamartapp.dto.dataset.app.DatasetDtoResponse;
 import datamartapp.dto.dataset.app.DatasetDtoUpdate;
@@ -7,11 +8,15 @@ import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.model.Connection;
 import datamartapp.repositories.app.ConnectionRepository;
+import datamartapp.repositories.app.DatasetsRepository;
+import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -24,15 +29,14 @@ import java.util.*;
 @PropertySource("classpath:application.properties")
 public class DatasetsServiceImp implements DatasetsService {
 
-/*    @Value("${app.csvRelativePath:C:\\study\\Java\\tasks\\Data mart\\TemporalCsv}")
-    private final String csvRelativePath = ""; //= "C:\\study\\Java\\tasks\\Data mart\\TemporalCsv";//"/resources/temporalCsv";
-    private File csvDirectory = new File(csvRelativePath);*/
     private File csvDirectory;
     private final CsvParser csvParser;
 
-    //private final DatasetsRepository datasetsRepository;
     private final ConnectionRepository connectionRepository;
-    //private final DatasetsInDataMartRepository datasetsInDataMartRepository;
+    private final DatasetsRepository datasetsRepository;
+    private final DatasetsInDataMartRepository datasetsInDataMartRepository;
+    @Qualifier(DatamartDbConfiguration.ENTITY_MANAGER_FACTORY)
+    private final EntityManager datamartEntityManager;
 
     @Override
     public DatasetDtoResponse addDataset(DatasetDtoRequest datasetDtoRequest) {
@@ -61,13 +65,27 @@ public class DatasetsServiceImp implements DatasetsService {
     }
 
 
+    public void saveInDataMart(Connection connection, DatasetDtoRequest datasetDtoRequest) {
+        ProcessBuilder builder = prepareRuntimeCommand(connection, datasetDtoRequest);
+        try {
+            copyCsvFileFromServerInAppDirectory(builder, connection);
+        } catch (IOException e) {
+            log.warn("");
+            throw new ValidationException("");
+        }
+        String query = csvParser.makeSqlQueryForCreatingTable(datasetDtoRequest.getTableName());
+
+
+    }
+
+
     //docker exec -i test-db psql -U user -W test -c "COPY sales TO STDOUT WITH CSV HEADER" > test.csv
-    public String prepareStringCommandCopyFromServer(String user, String containerName, String dbName, String tableName) {
+    private String prepareStringCommandCopyFromServer(String user, String containerName, String dbName, String tableName) {
         String command = "docker exec -i %s psql -U %s -W %s -c \"COPY %s TO STDOUT WITH CSV HEADER\" > %s.csv";
         return String.format(command, containerName, user, dbName, tableName, tableName);
     }
 
-    public ProcessBuilder prepareRuntimeCommand(Connection connection, DatasetDtoRequest request) {
+    private ProcessBuilder prepareRuntimeCommand(Connection connection, DatasetDtoRequest request) {
         ProcessBuilder processBuilder = new ProcessBuilder();
         processBuilder.command("cmd.exe", "/c", prepareStringCommandCopyFromServer(connection.getDbUser(),
                 "test-db",
@@ -78,7 +96,7 @@ public class DatasetsServiceImp implements DatasetsService {
         return processBuilder;
     }
 
-    public void copyCsvFileFromServerInAppDirectory(ProcessBuilder processBuilder, Connection connection) throws IOException {
+    private void copyCsvFileFromServerInAppDirectory(ProcessBuilder processBuilder, Connection connection) throws IOException {
         Process process = processBuilder.start();
         BufferedWriter writer = process.outputWriter();
         writer.write(connection.getDbPassword() + "\n");
@@ -90,7 +108,7 @@ public class DatasetsServiceImp implements DatasetsService {
         checkCmdResponse(cmdResponse);
     }
 
-    public String readCmdResponse(BufferedReader reader) throws IOException {
+    private String readCmdResponse(BufferedReader reader) throws IOException {
         String cmdResponse = null;
         while (reader.read() != -1) {
             cmdResponse = reader.readLine();
@@ -98,14 +116,14 @@ public class DatasetsServiceImp implements DatasetsService {
         return cmdResponse;
     }
 
-    public void checkCmdResponse(String cmdResponse) {
+    private void checkCmdResponse(String cmdResponse) {
         if (cmdResponse.isEmpty()) {
             log.warn("");
             throw new ValidationException("");
         }
     }
 
-    public void isTableExistedInSourceDb(Connection connection, DatasetDtoRequest datasetDtoRequest) {
+    private void isTableExistedInSourceDb(Connection connection, DatasetDtoRequest datasetDtoRequest) {
         try (java.sql.Connection connToDb = DriverManager
                 .getConnection(Utils.prepareURL(connection), connection.getDbUser(), connection.getDbPassword())) {
             String checkTableAvailability = "SELECT table_name " +
@@ -132,14 +150,14 @@ public class DatasetsServiceImp implements DatasetsService {
     }
     //DO NOT DELETE
     private void isTableExistedInDataMartDb(DatasetDtoRequest datasetDtoRequest) {
-/*        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
+        if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
                 datasetDtoRequest.getTableName())) {
             log.warn("Table with name = {}, on schema = {} is already existed in datamartApp",
                     datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme());
             throw new ValidationException(String
                     .format("Table with name = %s, on schema = %s is already existed in datamartApp",
                     datasetDtoRequest.getTableName(), datasetDtoRequest.getScheme()));
-        }*/
+        }
     }
 
     private void isThereDataset() {
@@ -170,3 +188,9 @@ public class DatasetsServiceImp implements DatasetsService {
     }
 
 }
+
+
+
+/*    @Value("${app.csvRelativePath:C:\\study\\Java\\tasks\\Data mart\\TemporalCsv}")
+    private final String csvRelativePath = ""; //= "C:\\study\\Java\\tasks\\Data mart\\TemporalCsv";//"/resources/temporalCsv";
+    private File csvDirectory = new File(csvRelativePath);*/

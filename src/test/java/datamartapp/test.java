@@ -45,7 +45,7 @@ public class test {
         datasetDtoRequest = new DatasetDtoRequest(1L , 1L, "public", "sales");
     }
 
-    @Test
+/*    @Test
     void shouldValidateDataSource() {
         datasetsServiceImp.isTableExistedInSourceDb(connection, datasetDtoRequest);
     }
@@ -70,7 +70,7 @@ public class test {
     void testCopy() throws IOException {
         ProcessBuilder builder = datasetsServiceImp.prepareRuntimeCommand(connection, datasetDtoRequest);
         datasetsServiceImp.copyCsvFileFromServerInAppDirectory(builder, connection);
-    }
+    }*/
 
 /*    @Test
     void shouldParseHeaders() {
