@@ -38,21 +38,6 @@ public class WebSecurityConfig {
         return new ProviderManager(authenticationProvider);
     }
 
-/*    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/js/**").permitAll()
-                        .requestMatchers("/css/**").permitAll()
-                        //.requestMatchers("/data-mart/admin**").hasRole("ADMIN")
-                        .requestMatchers("/data-mart/home").hasRole("ADMIN")
-                        .requestMatchers("/data-mart/home").hasRole("USER")
-                        .anyRequest().authenticated())
-                .formLogin(form -> form.loginPage("/data-mart/login")
-                        .defaultSuccessUrl("/data-mart/home"))
-                .logout(logout -> logout.permitAll().logoutSuccessUrl("/data-mart/login"));
-        return http.build();
-    }*/
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable);

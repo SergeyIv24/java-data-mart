@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lombok.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/DatasetsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/DatasetsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/datamart/DatasetsInDataMartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/datamart/DatasetsInDataMartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/datamartDb.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/datamartDb.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/temporalCsv/test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,7 +85,7 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DataMartApp">
+  <component name="RunManager" selected="JUnit.test.shouldCreateTable">
     <configuration name="DataMartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="datamartapp.DataMartApp" />
       <module name="data-mart-app" />
@@ -88,6 +95,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.shouldCreateTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-mart-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="datamartapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="datamartapp" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
+      <option name="METHOD_NAME" value="shouldCreateTable" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,29 +163,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testCopy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-mart-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="datamartapp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="datamartapp" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.test" />
-      <option name="METHOD_NAME" value="testCopy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test.shouldCreateTable" />
         <item itemvalue="Application.DataMartApp" />
         <item itemvalue="JUnit.test.shouldPrepareQuery" />
         <item itemvalue="JUnit.test.shouldDefineDataTypes" />
         <item itemvalue="JUnit.test.shouldParseHeaders" />
-        <item itemvalue="JUnit.test.testCopy" />
       </list>
     </recent_temporary>
   </component>
@@ -182,42 +189,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>49</line>
+          <line>55</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>55</line>
+          <line>61</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>56</line>
+          <line>62</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>57</line>
+          <line>63</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>58</line>
+          <line>64</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>71</line>
+          <line>77</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>70</line>
+          <line>76</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/datamartapp/test.java</url>
-          <line>76</line>
+          <line>82</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>

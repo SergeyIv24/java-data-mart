@@ -1,5 +1,6 @@
 package datamartapp.services.implementation;
 
+import datamartapp.config.Config;
 import datamartapp.config.DatamartDbConfiguration;
 import datamartapp.dto.dataset.app.DatasetDtoRequest;
 import datamartapp.dto.dataset.app.DatasetDtoResponse;
@@ -12,12 +13,18 @@ import datamartapp.repositories.app.DatasetsRepository;
 import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
 
 import java.io.*;
 import java.sql.*;
@@ -29,14 +36,16 @@ import java.util.*;
 @PropertySource("classpath:application.properties")
 public class DatasetsServiceImp implements DatasetsService {
 
-    private File csvDirectory;
+    private final File csvDirectory;
     private final CsvParser csvParser;
 
     private final ConnectionRepository connectionRepository;
     private final DatasetsRepository datasetsRepository;
     private final DatasetsInDataMartRepository datasetsInDataMartRepository;
-    @Qualifier(DatamartDbConfiguration.ENTITY_MANAGER_FACTORY)
-    private final EntityManager datamartEntityManager;
+
+    @Autowired
+    @Qualifier(DatamartDbConfiguration.JDBC_TEMPLATE_NAME)
+    private final JdbcTemplate jdbcTemplate;
 
     @Override
     public DatasetDtoResponse addDataset(DatasetDtoRequest datasetDtoRequest) {
@@ -65,6 +74,8 @@ public class DatasetsServiceImp implements DatasetsService {
     }
 
 
+
+    @Transactional
     public void saveInDataMart(Connection connection, DatasetDtoRequest datasetDtoRequest) {
         ProcessBuilder builder = prepareRuntimeCommand(connection, datasetDtoRequest);
         try {
@@ -74,8 +85,7 @@ public class DatasetsServiceImp implements DatasetsService {
             throw new ValidationException("");
         }
         String query = csvParser.makeSqlQueryForCreatingTable(datasetDtoRequest.getTableName());
-
-
+        jdbcTemplate.execute(query);
     }
 
 

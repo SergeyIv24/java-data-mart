@@ -45,6 +45,12 @@ public class test {
         datasetDtoRequest = new DatasetDtoRequest(1L , 1L, "public", "sales");
     }
 
+
+    @Test
+    void shouldCreateTable() {
+        datasetsServiceImp.saveInDataMart(connection, datasetDtoRequest);
+    }
+
 /*    @Test
     void shouldValidateDataSource() {
         datasetsServiceImp.isTableExistedInSourceDb(connection, datasetDtoRequest);

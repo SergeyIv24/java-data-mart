@@ -31,9 +31,11 @@ public class AppDatabaseConfiguration {
 
     private final Environment environment;
 
+
     @Primary
     @Bean
     public DataSource appDataSource() {
+
         return DataSourceBuilder
                 .create()
                 .driverClassName(environment.getRequiredProperty("jdbc.driverClassName"))

@@ -1,15 +1,17 @@
 package datamartapp.config;
 
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -26,21 +28,22 @@ import java.util.Properties;
 @PropertySource("classpath:datamartDb.properties")
 @RequiredArgsConstructor
 public class DatamartDbConfiguration {
-
+    public static final String JDBC_TEMPLATE_NAME = "connectToDataMart";
     public static final String ENTITY_MANAGER_FACTORY = "dataMartEntityManagerFactory";
     public static final String TRANSACTIONAL_MANAGER = "dataMartTransactionalManager";
     public static final String JPA_REPOSITORY_PACKAGE = "datamartapp.repositories.datamart";
+    public static final String DATA_SOURCE = "datamartDataSource";
 
     private final Environment environment;
 
-    @Bean
+    @Bean(name = DATA_SOURCE)
     public DataSource datamartDataSource() {
         return DataSourceBuilder
                 .create()
-                .driverClassName(environment.getRequiredProperty("jdbc.driverClassName"))
-                .username(environment.getRequiredProperty("jdbc.username"))
-                .password(environment.getRequiredProperty("jdbc.password"))
-                .url(environment.getRequiredProperty("jdbc.url"))
+                .driverClassName(environment.getRequiredProperty("datamart.jdbc.driverClassName"))
+                .username(environment.getRequiredProperty("datamart.jdbc.username"))
+                .password(environment.getRequiredProperty("datamart.jdbc.password"))
+                .url(environment.getRequiredProperty("datamart.jdbc.url"))
                 .build();
     }
 
@@ -71,6 +74,11 @@ public class DatamartDbConfiguration {
         properties.put("spring.jpa.properties.hibernate.format_sql", environment
                 .getRequiredProperty("spring.jpa.properties.hibernate.format_sql"));
         return properties;
+    }
+
+    @Bean(name = JDBC_TEMPLATE_NAME)
+    public JdbcTemplate jdbcTemplate(@Autowired @Qualifier(DatamartDbConfiguration.DATA_SOURCE) DataSource dataSourceDataMart) {
+        return new JdbcTemplate(dataSourceDataMart);
     }
 
 
