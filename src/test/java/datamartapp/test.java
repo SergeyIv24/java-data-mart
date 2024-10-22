@@ -49,6 +49,8 @@ public class test {
     @Test
     void shouldCreateTable() {
         //datasetsServiceImp.saveInDataMart(connection, datasetDtoRequest);
+        datasetsServiceImp.addDataset(datasetDtoRequest);
+
     }
 
 /*    @Test

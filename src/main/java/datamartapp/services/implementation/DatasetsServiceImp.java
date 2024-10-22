@@ -7,6 +7,7 @@ import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.mappers.DatasetMapper;
 import datamartapp.model.Connection;
+import datamartapp.model.Dataset;
 import datamartapp.repositories.app.ConnectionRepository;
 import datamartapp.repositories.app.DatasetsRepository;
 import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
@@ -41,6 +42,7 @@ public class DatasetsServiceImp implements DatasetsService {
                                 .toDataset(datasetDtoRequest)));
     }
 
+    @Deprecated
     @Override
     public DatasetDtoResponse updateDataset(DatasetDtoUpdate datasetDtoUpdate) {
         return null;
@@ -48,8 +50,9 @@ public class DatasetsServiceImp implements DatasetsService {
 
     @Override
     public void deleteDataset(long datasetId) {
+        Dataset dataset = validateDataset(datasetId);
+        dataMartServiceImp.deleteTableByName(dataset.getTableName());
         datasetsRepository.deleteById(datasetId);
-
     }
 
     @Override
@@ -94,5 +97,19 @@ public class DatasetsServiceImp implements DatasetsService {
 
     private Optional<Connection> getConnectionById(long connectionId) {
         return connectionRepository.findById(connectionId);
+    }
+
+    private Dataset validateDataset(long datasetId) {
+        Optional<Dataset> dataset = getDatasetById(datasetId);
+        if (dataset.isEmpty()) {
+            log.warn("Dataset with id = {} is not found", dataset);
+            throw new NotFoundException(String
+                    .format("Dataset with id = %d is not found", datasetId));
+        }
+        return dataset.get();
+    }
+
+    private Optional<Dataset> getDatasetById(long datasetId) {
+        return datasetsRepository.findById(datasetId);
     }
 }

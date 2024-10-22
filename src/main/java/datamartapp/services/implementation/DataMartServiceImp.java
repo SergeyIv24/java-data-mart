@@ -42,6 +42,12 @@ public class DataMartServiceImp {
         importDataToTableFromScv(datasetDtoRequest.getTableName(), headers);
     }
 
+    @Transactional
+    public void deleteTableByName(String tableName) {
+        String deletingQuery = String.format("DROP TABLE %s", tableName);
+        jdbcTemplate.execute(deletingQuery);
+    }
+
     private void importDataToTableFromScv(String tableName, String headers) {
         String queryTemplate = "COPY %s (%s) " +
                 "FROM '/var/lib/postgresql/data/csv/%s.csv' " +
@@ -95,7 +101,6 @@ public class DataMartServiceImp {
         }
     }
 
-    //DO NOT DELETE
     protected void isTableExistedInDataMartDb(DatasetDtoRequest datasetDtoRequest) {
         if (datasetsInDataMartRepository.isTablesExisted(datasetDtoRequest.getScheme(),
                 datasetDtoRequest.getTableName())) {
