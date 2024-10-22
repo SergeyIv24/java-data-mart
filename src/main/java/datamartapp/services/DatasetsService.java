@@ -14,6 +14,6 @@ public interface DatasetsService {
 
     void deleteDataset(long datasetId);
 
-    List<DatasetDtoResponse> getDatasets(int from, int size);
+    List<DatasetDtoResponse> getDatasets(int pageNum, String sort);
 
 }

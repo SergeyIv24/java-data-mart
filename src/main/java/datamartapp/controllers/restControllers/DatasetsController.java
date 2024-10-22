@@ -45,9 +45,8 @@ public class DatasetsController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<DatasetDtoResponse> getDatasets(@RequestParam(value = "from", defaultValue = "0") int from,
-                                                @RequestParam(value = "size", defaultValue = "10") int size) {
-        log.info("DatasetsController, getDatasets, from: {}, size: {}", from, size);
-        return datasetsService.getDatasets(from, size);
+                                                @RequestParam(value = "sort", defaultValue = "ASC") String sort) {
+        log.info("DatasetsController, getDatasets, from: {}, size: {}", from, sort);
+        return datasetsService.getDatasets(from, sort);
     }
-
 }

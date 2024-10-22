@@ -14,10 +14,14 @@ import datamartapp.repositories.datamart.DatasetsInDataMartRepository;
 import datamartapp.services.DatasetsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -56,8 +60,21 @@ public class DatasetsServiceImp implements DatasetsService {
     }
 
     @Override
-    public List<DatasetDtoResponse> getDatasets(int from, int size) {
-        return null;
+    public List<DatasetDtoResponse> getDatasets(int pageNum, String sort) {
+        final int pageSize = 5;
+
+        Sort sorting = Sort.by(Sort.Direction.ASC, "created");
+
+        if (sort.equals(String.valueOf(Sort.Direction.DESC))) {
+            sorting = Sort.by(Sort.Direction.DESC, "created");
+        }
+
+        Pageable pageable = PageRequest.of(pageNum, pageSize, sorting);
+        List<Dataset> datasets = datasetsRepository
+                .findAll(pageable)
+                .stream()
+                .toList();
+        return datasetMapper.toDatasetDtoResponseList(datasets);
     }
 
     private void isTableExistedInSourceDb(Connection connection, DatasetDtoRequest datasetDtoRequest) {
