@@ -46,12 +46,6 @@ public class DatasetsServiceImp implements DatasetsService {
                                 .toDataset(datasetDtoRequest)));
     }
 
-    @Deprecated
-    @Override
-    public DatasetDtoResponse updateDataset(DatasetDtoUpdate datasetDtoUpdate) {
-        return null;
-    }
-
     @Override
     public void deleteDataset(long datasetId) {
         Dataset dataset = validateDataset(datasetId);

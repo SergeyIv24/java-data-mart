@@ -28,13 +28,6 @@ public class DatasetsController {
         return datasetsService.addDataset(datasetDtoRequest);
     }
 
-    @PatchMapping
-    @ResponseStatus(HttpStatus.OK)
-    public DatasetDtoResponse updateDataset(@RequestBody DatasetDtoUpdate datasetDtoUpdate) {
-        log.info("DatasetsController, updateDataset, datasetDtoUpdate: {}", datasetDtoUpdate);
-        return datasetsService.updateDataset(datasetDtoUpdate);
-    }
-
     @DeleteMapping("/{datasetId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteDataset(@PathVariable(value = "datasetId") long datasetId) {
