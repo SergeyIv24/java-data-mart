@@ -48,6 +48,7 @@ public class DataMartServiceImp {
         jdbcTemplate.execute(deletingQuery);
     }
 
+    @Transactional
     private void importDataToTableFromScv(String tableName, String headers) {
         String queryTemplate = "COPY %s (%s) " +
                 "FROM '/var/lib/postgresql/data/csv/%s.csv' " +

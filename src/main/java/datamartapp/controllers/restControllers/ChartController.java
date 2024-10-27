@@ -21,21 +21,23 @@ public class ChartController {
     private final ChartService chartService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public ChartDtoResponse constructTableChart(@Valid @RequestBody ChartDto chartDtoRequest,
-                                           @RequestParam(value = "limit") int limit,
-                                           @RequestParam(value = "headers") List<String> headers) {
-        log.info("");
+                                                @RequestParam(value = "limit") int limit,
+                                                @RequestParam(value = "headers") List<String> headers) {
+        log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, headers: {}",
+                chartDtoRequest, limit, headers);
         return chartService.createTableChart(chartDtoRequest, limit, ChartType.TABLE_CHART, headers);
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public ChartDtoResponse constructLineChart(@Valid @RequestBody ChartDto chartDtoRequest,
-                                                @RequestParam(value = "limit") int limit,
-                                                @RequestParam(value = "xAxisColumn") String xAxisColumn,
-                                                @RequestParam(value = "yAxisColumn") String yAxisColumn) {
-        log.info("");
+                                               @RequestParam(value = "limit") int limit,
+                                               @RequestParam(value = "xAxisColumn") String xAxisColumn,
+                                               @RequestParam(value = "yAxisColumn") String yAxisColumn) {
+        log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, xAxisColumn: {}, yAxisColumn: {}",
+                chartDtoRequest, limit, xAxisColumn, yAxisColumn);
         return chartService.createLineChart(chartDtoRequest, limit, ChartType.LINE_CHART, xAxisColumn, yAxisColumn);
     }
 

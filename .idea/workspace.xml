@@ -5,19 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/common/ChartType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/LineChartDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/TableChartDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ChartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartDataMartServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Er-diagramm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Er-diagramm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDtoResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/TableChartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/TableChartDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,11 +1,15 @@
 package datamartapp.dto.chart;
 
-import datamartapp.common.ChartType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class ChartDto {
 
+    @NotNull(message = "User id must exist")
     private Long userId;
 
     @NotBlank(message = "Name must exist")
@@ -15,7 +19,7 @@ public class ChartDto {
     private String tableName;
 
     @NotBlank(message = "ChartType must exist")
-    private ChartType chartType;
+    private String chartType;
 
     @NotNull(message = "Limit must exist")
     private Integer limit;

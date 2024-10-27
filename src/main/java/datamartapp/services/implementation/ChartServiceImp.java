@@ -2,12 +2,9 @@ package datamartapp.services.implementation;
 
 import datamartapp.common.ChartType;
 import datamartapp.dto.chart.ChartDto;
-import datamartapp.dto.chart.ChartDtoResponse;
 import datamartapp.dto.chart.LineChartDto;
 import datamartapp.dto.chart.TableChartDto;
-import datamartapp.exceptions.NotFoundException;
 import datamartapp.exceptions.ValidationException;
-import datamartapp.model.charts.LineChart;
 import datamartapp.services.ChartService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class ChartServiceImp implements ChartService {
+
+    private final ChartDataMartServiceImp chartDataMartService;
 
     @Override
     public TableChartDto createTableChart(ChartDto chartDto, int limit, ChartType chartType, List<String> headers) {
@@ -34,8 +33,12 @@ public class ChartServiceImp implements ChartService {
     }
 
     private TableChartDto prepareTableChart(ChartDto chartDto, int limit, List<String> headers) {
-
-        return null;
+        TableChartDto tableChartDto = new TableChartDto();
+        tableChartDto.setChartName(chartDto.getName());
+        tableChartDto.setHeaders(chartDataMartService.validateAndGetHeaders(headers, chartDto.getTableName()));
+        tableChartDto.setData(chartDataMartService
+                .getDataByHeaders(tableChartDto.getHeaders(), limit, chartDto.getTableName()));
+        return tableChartDto;
     }
 
     private LineChartDto prepareLineChart(ChartDto chartDto, int limit, String xAxisColumn, String yAxisColumn) {
@@ -44,8 +47,8 @@ public class ChartServiceImp implements ChartService {
 
     private void validateLimit(int limit) {
         if (limit <= 0) {
-            log.warn("");
-            throw new ValidationException("");
+            log.warn("Limit is less then 0. Got limit: {}", limit);
+            throw new ValidationException("Got bad limit: " + limit);
         }
     }
 

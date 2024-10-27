@@ -17,6 +17,9 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 @EnableJpaRepositories(
@@ -33,6 +36,7 @@ public class DatamartDbConfiguration {
     public static final String TRANSACTIONAL_MANAGER = "dataMartTransactionalManager";
     public static final String JPA_REPOSITORY_PACKAGE = "datamartapp.repositories.datamart";
     public static final String DATA_SOURCE = "datamartDataSource";
+    public static final String CONNECTION_OBJ_TO_DATA_MART = "connectionObjectToDataMart";
 
     private final Environment environment;
 
@@ -81,5 +85,10 @@ public class DatamartDbConfiguration {
         return new JdbcTemplate(dataSourceDataMart);
     }
 
-
+    @Bean(name = CONNECTION_OBJ_TO_DATA_MART)
+    public Connection connection() throws SQLException {
+        return DriverManager.getConnection(environment.getRequiredProperty("datamart.jdbc.url"),
+                environment.getRequiredProperty("datamart.jdbc.username"),
+                environment.getRequiredProperty("datamart.jdbc.password"));
+    }
 }
