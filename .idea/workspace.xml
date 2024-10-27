@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/LineChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/common/ChartType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/LineChartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/TableChartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Er-diagramm.png" beforeDir="false" afterPath="$PROJECT_DIR$/Er-diagramm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ChartDtoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDtoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,19 +60,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "charts",
-    "last_opened_file_path": "C:/study/Java/tasks/differentTestesTheory",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.47356322",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;charts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/study/Java/tasks/differentTestesTheory&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.47356322&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\study\Java\tasks\Data mart\java-data-mart\src\main\resources\static\js\js" />
