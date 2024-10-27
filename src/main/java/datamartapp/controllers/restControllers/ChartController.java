@@ -22,35 +22,35 @@ public class ChartController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public ChartDtoResponse constructTableChart(@Valid @RequestBody ChartDto chartDtoRequest,
-                                                @RequestParam(value = "limit") int limit,
-                                                @RequestParam(value = "headers") List<String> headers) {
+    public ChartDtoResponse createTableChart(@Valid @RequestBody ChartDto chartDtoRequest,
+                                             @RequestParam(value = "limit") int limit,
+                                             @RequestParam(value = "headers") List<String> headers) {
         log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, headers: {}",
                 chartDtoRequest, limit, headers);
         return chartService.createTableChart(chartDtoRequest, limit, ChartType.TABLE_CHART, headers);
     }
 
-    @PostMapping
+/*    @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public ChartDtoResponse constructLineChart(@Valid @RequestBody ChartDto chartDtoRequest,
-                                               @RequestParam(value = "limit") int limit,
-                                               @RequestParam(value = "xAxisColumn") String xAxisColumn,
-                                               @RequestParam(value = "yAxisColumn") String yAxisColumn) {
+    public ChartDtoResponse createLineChart(@Valid @RequestBody ChartDto chartDtoRequest,
+                                            @RequestParam(value = "limit") int limit,
+                                            @RequestParam(value = "xAxisColumn") String xAxisColumn,
+                                            @RequestParam(value = "yAxisColumn") String yAxisColumn) {
         log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, xAxisColumn: {}, yAxisColumn: {}",
                 chartDtoRequest, limit, xAxisColumn, yAxisColumn);
         return chartService.createLineChart(chartDtoRequest, limit, ChartType.LINE_CHART, xAxisColumn, yAxisColumn);
-    }
+    }*/
 
-    @PostMapping
+/*    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ChartDtoResponse saveChart(@Valid @RequestBody ChartDto chartDtoRequest, int limit) {
         return null;
-    }
+    }*/
 
-    @DeleteMapping
+/*    @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void deleteChart(long chartId) {
 
-    }
+    }*/
 
 }

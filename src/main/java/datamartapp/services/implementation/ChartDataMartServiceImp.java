@@ -32,7 +32,7 @@ public class ChartDataMartServiceImp {
                 "FROM information_schema.columns " +
                 "WHERE table_schema = 'public' " +
                 "AND table_name = '%s' " +
-                "AND column_name IN (%s)", tableName, headers);
+                "AND column_name IN (%s)", tableName, prepareHeaders(headers));
 
         List<String> headersFromDb = jdbcTemplate.queryForList(getHeaders, String.class);
 
@@ -46,18 +46,20 @@ public class ChartDataMartServiceImp {
     }
 
     public List<List<String>> getDataByHeaders(List<String> headers, int limit, String tableName) {
-        String query = String.format("SELECT %s FROM ? LIMIT ?", headers);
+        String query = String.format("SELECT %s FROM %s LIMIT ?", prepareHeaders(headers), tableName);
 
         try (connectionToDataMart) {
             PreparedStatement preparedStatement = connectionToDataMart.prepareStatement(query);
-            preparedStatement.setString(1, tableName);
-            preparedStatement.setInt(2, limit);
+            preparedStatement.setInt(1, limit);
             ResultSet resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         return null;
+    }
+
+    private String prepareHeaders(List<String> headers) {
+        return String.join(", ", headers);
     }
 
 

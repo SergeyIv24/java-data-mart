@@ -7,8 +7,8 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
-@Table(name = "")
+/*@Entity
+@Table(name = "")*/
 @Getter
 @Setter
 public class LineChart extends Chart {

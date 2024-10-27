@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS chart (
     name VARCHAR NOT NULL,
     table_name VARCHAR NOT NULL,
     chart_type VARCHAR NOT NULL,
-    limit INTEGER NOT NULL,
+    row_limit INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 

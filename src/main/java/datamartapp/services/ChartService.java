@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface ChartService {
     TableChartDto createTableChart(ChartDto chartDto, int limit, ChartType chartType, List<String> headers);
 
