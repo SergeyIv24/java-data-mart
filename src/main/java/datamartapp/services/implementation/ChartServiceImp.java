@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -36,8 +37,14 @@ public class ChartServiceImp implements ChartService {
         TableChartDto tableChartDto = new TableChartDto();
         tableChartDto.setChartName(chartDto.getName());
         tableChartDto.setHeaders(chartDataMartService.validateAndGetHeaders(headers, chartDto.getTableName()));
-        tableChartDto.setData(chartDataMartService
-                .getDataByHeaders(tableChartDto.getHeaders(), limit, chartDto.getTableName()));
+        try {
+            tableChartDto.setData(chartDataMartService
+                    .getDataByHeaders(tableChartDto.getHeaders(), limit, chartDto.getTableName()));
+        } catch (SQLException e) {
+            log.warn("Something went wrong while preparing data");
+            throw new ValidationException("Something went wrong while preparing data");
+        }
+
         return tableChartDto;
     }
 

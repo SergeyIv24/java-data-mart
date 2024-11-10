@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,17 +43,30 @@ public class ChartDataMartServiceImp {
         return headersFromDb;
     }
 
-    public List<List<String>> getDataByHeaders(List<String> headers, int limit, String tableName) {
+    public List<List<String>> getDataByHeaders(List<String> headers, int limit, String tableName) throws SQLException {
         String query = String.format("SELECT %s FROM %s LIMIT ?", prepareHeaders(headers), tableName);
-
+        ResultSet resultSet;
+        ResultSetMetaData resultSetMetaData;
         try (connectionToDataMart) {
             PreparedStatement preparedStatement = connectionToDataMart.prepareStatement(query);
             preparedStatement.setInt(1, limit);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
+            resultSetMetaData = resultSet.getMetaData();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+
+
+        List<List<String>> dataByHeaders = new ArrayList<>();
+        int columnsCount = resultSetMetaData.getColumnCount();
+        for (int i = 1; i <= columnsCount; i++ ) {
+            List<String> particularHeadersData = new ArrayList<>();
+            while (resultSet.next()) {
+                particularHeadersData.add(resultSet.getString(i));
+            }
+            dataByHeaders.add(particularHeadersData);
+        }
+        return dataByHeaders;
     }
 
     private String prepareHeaders(List<String> headers) {
