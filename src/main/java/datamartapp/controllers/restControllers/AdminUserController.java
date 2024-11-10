@@ -41,8 +41,7 @@ public class AdminUserController {
     @GetMapping("/list")
     @ResponseStatus(HttpStatus.OK)
     public List<UserDtoWithoutPass> getUsers(@RequestParam(value = "from", defaultValue = "0") int from,
-                                             @RequestParam(value = "size", defaultValue = "10") int size
-                                             /*@RequestParam(value = "search") String loginForSearch*/) {
+                                             @RequestParam(value = "size", defaultValue = "10") int size) {
         log.info("AdminUserController, getUsers, from: {}, size: {}", from, size);
         return userAdminService.getUsers(from, size);
     }

@@ -1,100 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
-    <link th:href="@{/css/index-admin-style.css}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link th:href="@{/css/index-admin-style.css}" rel="stylesheet"/>
 </head>
-
 <body>
-    <header>
-        <div class="header">
-            <div class="navigation">
-                Admin home page
-            </div>
-            <li role="presentation" class="usersItem">
-                <a role="button" href="">
-                    Users
-                </a>
-            </li>
-            <li role="presentation" class="usersItem">
-                <a role="button" href="">
-                    Connections
-                </a>
-            </li>
-            <li role="presentation" class="usersItem">
-                <a role="button" href="">
-                    Datasets
-                </a>
-            </li>
-            <li role="presentation" class="usersItem">
-                <a role="button" href="">
-                    Dashboards
-                </a>
-            </li>
-            <div class="logout">
-                <input type="submit" value="Log out">
-            </div>
 
-        </div>
+<header>
+    <div class="logo">Datamart</div>
+    <nav class="nav">
+        <a th:href="@{/data-mart/admin/user}">Users</a>
+        <a th:href="@{/data-mart/connections}">Connections</a>
+        <a href="#">Datasets</a>
+        <a href="#">Dashboards</a>
+        <a href="#">SQL</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
 
-    </header>
-
-    <div class="navigation">
-
+<main>
+    <div class="menu">
+        <h3>Dashboards</h3>
+        <ul>
+            <li>Dashboard 1</li>
+            <li>Dashboard 2</li>
+        </ul>
     </div>
-    <div class="main-container">
-        <div class="dashboard">
-            <div class="dashboard-header">
-                "Dashboard"
-            </div>
-            <div class="dashboard-content">
 
-            </div>
-        </div>
-
-        <div class="charts">
-            <div class="charts-header">
-                "Charts"
-            </div>
-            <div class="charts-content">
-
-            </div>
-        </div>
-
-        <div class="sqlqueries">
-            <div class="sqlqueries-header">
-                "Saved SQL queries"
-            </div>
-            <div class="sqlqueries-content">
-
-            </div>
-
-        </div>
-
-        <div class="connections">
-            <div class="connections-header">
-                "Connections"
-            </div>
-            <div class="connections-content">
-
-            </div>
-
-        </div>
-
-        <div class="users">
-            <div class="users-header">
-                "Users"
-            </div>
-            <div class="users-content">
-
-            </div>
-
-        </div>
-
+    <div class="menu">
+        <h3>Charts</h3>
+        <ul>
+            <li>Chart 1</li>
+            <li>Chart 2</li>
+        </ul>
     </div>
+
+    <div class="menu">
+        <h3>Saved Queries</h3>
+        <ul>
+            <li>Query 1</li>
+            <li>Query 2</li>
+        </ul>
+    </div>
+
+    <div class="empty-section">
+        Empty section (to be filled later)
+    </div>
+</main>
 
 </body>
-
 </html>

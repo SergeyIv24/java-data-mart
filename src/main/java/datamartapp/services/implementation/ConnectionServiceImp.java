@@ -24,13 +24,6 @@ import java.util.Optional;
 import org.springframework.data.domain.Sort.Direction;
 
 
-//todo check in superset: Is it possible to connect to db without docker container
-//todo pagination formula:
-// pageNum, 2
-// amount 5, 5
-// limit pageNum * amount, 10
-// first limit - amount 5
-
 @Service
 @RequiredArgsConstructor
 @Slf4j

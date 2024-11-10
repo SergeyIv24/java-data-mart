@@ -1,59 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link th:href="@{/css/index-user-style.css}" rel="stylesheet"/>
 </head>
 <body>
-    <header>
 
-    </header>
+<header>
+    <div class="logo">Superset</div>
+    <nav class="nav">
+        <a th:href="@{/data-mart/connections}">Connections</a>
+        <a href="#">Datasets</a>
+        <a href="#">Dashboards</a>
+        <a href="#">SQL</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
 
-    <div class="navigation">
-
+<main>
+    <div class="menu">
+        <h3>Dashboards</h3>
+        <ul>
+            <li>Dashboard 1</li>
+            <li>Dashboard 2</li>
+        </ul>
     </div>
-    <div class="main-container">
-        <div class="dashboard">
-            <div class="dashboard-header">
-                "Dashboard"
-            </div>
-            <div class="dashboard-content">
 
-            </div>
-        </div>
-
-        <div class="charts">
-            <div class="charts-header">
-                "Charts"
-            </div>
-            <div class="charts-content">
-
-            </div>
-        </div>
-
-        <div class="sqlqueries">
-            <div class="sqlqueries-header">
-                "Saved SQL queries"
-            </div>
-            <div class="sqlqueries-content">
-
-            </div>
-
-        </div>
-
-        <div class="connections">
-            <div class="connections-header">
-                "Connections"
-            </div>
-            <div class="connections-content">
-
-            </div>
-
-        </div>
-
-
-
+    <div class="menu">
+        <h3>Charts</h3>
+        <ul>
+            <li>Chart 1</li>
+            <li>Chart 2</li>
+        </ul>
     </div>
+
+    <div class="menu">
+        <h3>Saved Queries</h3>
+        <ul>
+            <li>Query 1</li>
+            <li>Query 2</li>
+        </ul>
+    </div>
+
+    <div class="empty-section">
+        Empty section (to be filled later)
+    </div>
+</main>
 
 </body>
 </html>

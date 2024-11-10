@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connections</title>
+    <link th:href="@{/css/connections-style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<header>
+    <div class="logo">Data mart App</div>
+    <nav class="nav">
+        <a href="#">Dashboards</a>
+        <a href="#">Charts</a>
+        <a href="#">Datasets</a>
+        <a href="#">SQL</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
+
+<main>
+    <button class="create-button" onclick="openCreateModal()">Create connection</button>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Host</th>
+                    <th>Port</th>
+                    <th>User</th>
+                    <th>Database name</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="con : ${connectionsList}">
+                    <td th:text="${con.displayName}"></td>
+                    <td th:text="${con.dbType}"></td>
+                    <td th:text="${con.host}"></td>
+                    <td th:text="${con.port}"></td>
+                    <td th:text="${con.dbUser}"></td>
+                    <td th:text="${con.dbName}"></td>
+                    <td th:text="${con.created}"></td>
+                    <td class="actions">
+                        <button onclick="openEditModal(event, 'Database 1')">✏️</button>
+                        <button onclick="deleteConnection(event)">🗑️</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span>1-1 of 1</span>
+        </div>
+    </div>
+</main>
+
+<!-- Модальное окно с подробной информацией -->
+<div class="modal" id="connectionModal">
+    <div class="modal-content">
+        <h2>Connection Details</h2>
+        <label>Display name:</label>
+        <div id="displayName">Database 1</div>
+        
+        <label>Database type:</label>
+        <div id="dbType">PostgreSQL</div>
+        
+        <label>Database name:</label>
+        <div id="dbName">example_db</div>
+        
+        <label>Database user:</label>
+        <div id="dbUser">admin</div>
+        
+        <label>Database password:</label>
+        <div id="dbPassword">******</div>
+        
+        <label>Host:</label>
+        <div id="dbHost">localhost</div>
+        
+        <label>Port:</label>
+        <div id="dbPort">5432</div>
+        
+        <label>Created:</label>
+        <div id="dbCreated">13 days ago</div>
+        
+        <button class="close-modal" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Модальное окно редактирования соединения -->
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <h2>Edit Connection</h2>
+        <label>Display name:</label>
+        <input type="text" id="editDisplayName">
+        
+        <label>Database type:</label>
+        <input type="text" id="editDbType">
+        
+        <label>Database name:</label>
+        <input type="text" id="editDbName">
+        
+        <label>Database user:</label>
+        <input type="text" id="editDbUser">
+        
+        <label>Database password:</label>
+        <input type="password" id="editDbPassword">
+        
+        <label>Host:</label>
+        <input type="text" id="editDbHost">
+        
+        <label>Port:</label>
+        <input type="text" id="editDbPort">
+        
+        <div style="display: flex; justify-content: flex-end;">
+            <button class="close-modal" onclick="closeEditModal()">Cancel</button>
+            <button class="save-modal" onclick="saveChanges()">Save</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(name) {
+        document.getElementById('connectionModal').style.display = 'flex';
+        document.getElementById('displayName').innerText = name;
+    }
+
+    function closeModal() {
+        document.getElementById('connectionModal').style.display = 'none';
+    }
+
+    function openEditModal(event, name) {
+        event.stopPropagation();
+        document.getElementById('editModal').style.display = 'flex';
+        document.getElementById('editDisplayName').value = name;
+        // Загрузить остальные данные соединения по необходимости
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    function saveChanges() {
+        alert('Changes saved!');
+        closeEditModal();
+    }
+
+    function deleteConnection(event) {
+        event.stopPropagation();
+        alert('Delete connection');
+    }
+</script>
+
+</body>
+</html>

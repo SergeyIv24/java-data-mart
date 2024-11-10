@@ -3,6 +3,7 @@ package datamartapp.controllers.restControllers;
 import datamartapp.dto.ConnectionDto;
 import datamartapp.dto.ConnectionUpdate;
 import datamartapp.services.ConnectionService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.websocket.server.PathParam;
@@ -12,11 +13,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collection;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:63342")
-@RequestMapping(path = "users/{userId}/connections")
+@RequestMapping("/data-mart/connections")
 @RequiredArgsConstructor
 @Validated
 @Slf4j
@@ -24,19 +26,17 @@ public class ConnectionController {
 
     private final ConnectionService connectionService;
 
-    @GetMapping
+    @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public Collection<ConnectionDto> getConnections(@Min(0) @RequestParam(value = "pageNum", defaultValue = "0") int pageNum,
-                                                    @PathParam("sort") String sort,
-                                                    @PathVariable(value = "userId") long userId) {
+    public Collection<ConnectionDto> getConnections(@Min(0) @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                                                    @RequestParam("sort") String sort) {
         log.info("ConnectionsController, getConnections, pageNum: {}, sort {}", pageNum, sort);
         return connectionService.getConnections(pageNum, sort);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ConnectionDto createConnection(@Valid @RequestBody ConnectionDto connectionDto,
-                                          @PathVariable(value = "userId") long userId) {
+    public ConnectionDto createConnection(@Valid @RequestBody ConnectionDto connectionDto) {
         log.info("ConnectionController, createConnection, db_url {},port {}, user {}",
                 connectionDto.getHost(), connectionDto.getPort(), connectionDto.getDbUser());
         return connectionService.createConnection(connectionDto);
