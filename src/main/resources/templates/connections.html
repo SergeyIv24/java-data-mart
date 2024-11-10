@@ -20,7 +20,7 @@
 </header>
 
 <main>
-    <button class="create-button" onclick="openCreateModal()">Create connection</button>
+    <button class="create-button" onclick="openCreateModal()">Create</button>
     
     <div class="table-container">
         <table>
@@ -122,35 +122,41 @@
     </div>
 </div>
 
+<div class="modal" id="createModal">
+    <div class="modal-content">
+        <h2>Create Connection</h2>
+
+        <form class="newConnection" id="addConnection">
+            <label for="createDbHost">Host:</label>
+            <input name="host" id="createDbHost" type="text">
+            <label for="createDbPort">Port:</label>
+            <input name="port" type="number" id="createDbPort">
+            <label for="createDbName">Database name:</label>
+            <input name="dbName" type="text" id="createDbName">
+            <label for="createDbUser">Database user:</label>
+            <input name="dbUser" type="text" id="createDbUser">
+            <label for="createDbPassword">Database password:</label>
+            <input name="dbPassword" type="password" id="createDbPassword">
+            <label for="createDisplayName">Display name:</label>
+            <input name="displayName" type="text" id="createDisplayName">
+            <label for="createDbType">Database type:</label>
+            <input name="dbType" type="text" id="createDbType">
+            <div style="display: flex; justify-content: flex-end;">
+                <button class="close-modal" onclick="closeCreateModal()">Cancel</button>
+                <button class="save-modal" type="submit" onclick="handleAddConnection">Create</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script th:src="@{/js/connectionService.js}"></script>
 <script>
-    function openModal(name) {
-        document.getElementById('connectionModal').style.display = 'flex';
-        document.getElementById('displayName').innerText = name;
-    }
-
-    function closeModal() {
-        document.getElementById('connectionModal').style.display = 'none';
-    }
-
-    function openEditModal(event, name) {
-        event.stopPropagation();
-        document.getElementById('editModal').style.display = 'flex';
-        document.getElementById('editDisplayName').value = name;
-        // Загрузить остальные данные соединения по необходимости
-    }
-
-    function closeEditModal() {
-        document.getElementById('editModal').style.display = 'none';
-    }
-
-    function saveChanges() {
-        alert('Changes saved!');
-        closeEditModal();
-    }
-
-    function deleteConnection(event) {
-        event.stopPropagation();
-        alert('Delete connection');
+    function openCreateModal() {
+            document.getElementById('createModal').style.display = 'flex';
+        }
+        function closeCreateModal() {
+        document.getElementById('createModal').style.display = 'none';
     }
 </script>
 

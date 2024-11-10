@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/connectionsControllerMvc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/connections-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/index-user-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connections.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/adminControllerMvc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/adminControllerMvc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/index-admin-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/index-admin-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index-admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index-admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index-user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/connections-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/connections-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/connections.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/connections.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

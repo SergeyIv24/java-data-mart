@@ -1,9 +1,10 @@
-
-
 const form = document.getElementById('addConnection');
-form.addEventListener('submit', handleAddUser);
+form.addEventListener('submit', handleAddConnection);
+console.log(form)
+
 function handleAddConnection(event) {
     event.preventDefault();
+    console.log("In method")
     const data = buildBody(form);
     let request = new Request("http://localhost:8080/data-mart/connections", {
     method: 'POST',
