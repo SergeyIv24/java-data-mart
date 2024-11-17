@@ -40,7 +40,6 @@
             <td th:text="${ul.username}"></td>
             <td th:each="ur : ${ul.roles}" th:text="${ur.roleName}"></td>
             <td>
-<!--                <button class="action-btn">🔍</button>-->
                 <button class="action-btn" id="updater" th:data-name="${ul.userId}" th:onclick="openModalUpdate()">✏️</button>
                 <button class="action-btn delete" th:onclick="handleDeleteUser([[${ul.userId}]])">🗑️</button>
             </td>
@@ -102,7 +101,6 @@
 </div>
 
 <script th:src="@{/js/adminUserScripts.js}"></script>
-<!--<script th:src="@{/js/requests.js}"></script>-->
 
 </body>
 </html>

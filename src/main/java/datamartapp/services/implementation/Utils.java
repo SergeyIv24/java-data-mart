@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Utils {
     public static String prepareURL(Connection connection) {
-        return "jdbc:" + connection.getDbType() + "://" + connection.getHost() +
+        return "jdbc:" + connection.getDbType().toLowerCase() + "://" + connection.getHost() +
                 ":" + connection.getPort() + "/" + connection.getDbName();
     }
 }

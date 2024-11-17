@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:63342")
@@ -28,7 +29,7 @@ public class ConnectionController {
 
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.OK)
-    public Collection<ConnectionDto> getConnections(@Min(0) @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+    public Collection<ConnectionDto> getConnections(@Min(0) @RequestParam(value = "pageNum", defaultValue = "0") int pageNum,
                                                     @RequestParam("sort") String sort) {
         log.info("ConnectionsController, getConnections, pageNum: {}, sort {}", pageNum, sort);
         return connectionService.getConnections(pageNum, sort);

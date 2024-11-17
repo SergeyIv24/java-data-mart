@@ -1,3 +1,4 @@
+/*
 package datamartapp;
 
 import datamartapp.services.implementation.ChartDataMartServiceImp;
@@ -22,13 +23,16 @@ public class Test1 {
 
     }
 
+*/
 /*    @Test
     void should() {
         List<String> headers = List.of("h1", "h2", "h3");
         chartDataMartService.getDataByHeaders(headers, 5, "ww");
-    }*/
+    }*//*
+
 
 
 
 
 }
+*/

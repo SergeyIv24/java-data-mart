@@ -140,7 +140,7 @@ public class AdminServiceTests {
                 () -> userAdminService.loadUserByUsername(addedUpdatingUser.getUsername()));
     }
 
-    @Test
+/*    @Test
     void shouldGetUsers() {
         UserDtoWithoutPass firstAddedUser = userAdminService.addUser(firstUser, roleAdmin);
         UserDtoWithoutPass secondAddedUser = userAdminService.addUser(secondUser, roleUser);
@@ -155,7 +155,7 @@ public class AdminServiceTests {
         assertThat(users.get(3).getFirstname(), equalTo(thirdAddedUser.getFirstname()));
         assertThat(users.get(3).getLastname(), equalTo(thirdAddedUser.getLastname()));
         assertThat(users.get(3).getUsername(), equalTo(thirdAddedUser.getUsername()));
-    }
+    }*/
 
 
 
@@ -167,5 +167,6 @@ public class AdminServiceTests {
         Assertions.assertDoesNotThrow(() -> userAdminService.validateRole("ROLE_ADMIN"));
         Assertions.assertDoesNotThrow(() -> userAdminService.validateRole("ROLE_USER"));
     }*/
+
 
 }

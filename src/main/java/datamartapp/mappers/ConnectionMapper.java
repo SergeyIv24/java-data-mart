@@ -24,6 +24,7 @@ public class ConnectionMapper {
 
     public static ConnectionDto mapToConnectionDto(Connection connection) {
         return ConnectionDto.builder()
+                .id(connection.getId())
                 .host(connection.getHost())
                 .port(connection.getPort())
                 .dbName(connection.getDbName())

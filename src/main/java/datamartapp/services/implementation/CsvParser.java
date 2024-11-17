@@ -21,7 +21,7 @@ public class CsvParser {
     private final String csvRelativePath;
 
     public CsvParser(@Value("${app.csvRelativePath:" +
-            "C:\\study\\Java\\tasks\\Data mart\\java-data-mart\\src\\main\\resources\\temporalCsv}")
+            "C:\\study\\Java\\tasks\\Data mart\\java-data-mart\\src\\main\\java\\temporalCsv")
                      String csvRelativePath) {
         this.csvRelativePath = csvRelativePath;
     }

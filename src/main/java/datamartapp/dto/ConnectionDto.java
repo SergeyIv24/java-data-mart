@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @Builder
 public class ConnectionDto {
 
+    private Long id;
+
     @NotBlank(message = "empty host")
     @Length(min = 5, max = 200)
     private String host;

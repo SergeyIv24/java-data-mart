@@ -23,7 +23,7 @@ public class connectionsControllerMvc {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public String getConnectionsPage(@RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+    public String getConnectionsPage(@RequestParam(value = "pageNum", defaultValue = "0") int pageNum,
                                      @RequestParam(value = "sort", defaultValue = "ASC") String sort,
                                      Model model) {
         Collection<ConnectionDto> connections = connectionController.getConnections(pageNum, sort);

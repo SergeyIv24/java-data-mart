@@ -19,6 +19,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Sort.Direction;
@@ -112,11 +113,6 @@ public class ConnectionServiceImp implements ConnectionService {
 
     }
 
-/*    private String prepareURL(Connection connection) {
-        return "jdbc:" + connection.getDbType() + "://" + connection.getHost() +
-                ":" + connection.getPort() + "/" + connection.getDbName();
-    }*/
-
     private void validateConnection(Connection connection) {
         validateConnectionData(connection);
         try (java.sql.Connection conn =
@@ -129,36 +125,3 @@ public class ConnectionServiceImp implements ConnectionService {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*        URL dbUrl;
-        try {
-            dbUrl = new URI(connection.getHost() +
-                    ":" + connection.getPort() + "/" + connection.getDbName()).toURL();
-        } catch (MalformedURLException | URISyntaxException e) {
-            log.warn("Database URL: {} is bad", connection.getHost() +
-                    ":" + connection.getPort() + "/" + connection.getDbName());
-            throw new ValidationException("Database URL: " + connection.getHost() +
-                    ":" + connection.getPort() + "/" + connection.getDbName() + " is bad");
-        }
-        return dbUrl.toString();*/
