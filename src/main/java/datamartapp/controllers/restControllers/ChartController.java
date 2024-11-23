@@ -3,6 +3,7 @@ package datamartapp.controllers.restControllers;
 import datamartapp.common.ChartType;
 import datamartapp.dto.chart.ChartDto;
 import datamartapp.dto.chart.ChartDtoResponse;
+import datamartapp.dto.chart.TableChartDto;
 import datamartapp.services.ChartService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,17 +21,17 @@ public class ChartController {
 
     private final ChartService chartService;
 
-    @PostMapping
+    @PostMapping("/create-table")
     @ResponseStatus(HttpStatus.OK)
-    public ChartDtoResponse createTableChart(@Valid @RequestBody ChartDto chartDtoRequest,
-                                             @RequestParam(value = "limit") int limit,
-                                             @RequestParam(value = "headers") List<String> headers) {
+    public TableChartDto createTableChart(@Valid @RequestBody ChartDto chartDtoRequest,
+                                          @RequestParam(value = "limit") int limit,
+                                          @RequestParam(value = "headers") List<String> headers) {
         log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, headers: {}",
                 chartDtoRequest, limit, headers);
         return chartService.createTableChart(chartDtoRequest, limit, ChartType.TABLE_CHART, headers);
     }
 
-/*    @PostMapping
+    @PostMapping("/create-line")
     @ResponseStatus(HttpStatus.OK)
     public ChartDtoResponse createLineChart(@Valid @RequestBody ChartDto chartDtoRequest,
                                             @RequestParam(value = "limit") int limit,
@@ -39,18 +40,32 @@ public class ChartController {
         log.info("ChartController, constructTableChart. ChartDto: {}, limit: {}, xAxisColumn: {}, yAxisColumn: {}",
                 chartDtoRequest, limit, xAxisColumn, yAxisColumn);
         return chartService.createLineChart(chartDtoRequest, limit, ChartType.LINE_CHART, xAxisColumn, yAxisColumn);
-    }*/
+    }
 
-/*    @PostMapping
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ChartDtoResponse saveChart(@Valid @RequestBody ChartDto chartDtoRequest, int limit) {
-        return null;
-    }*/
+    public ChartDtoResponse saveChartData(@Valid @RequestBody ChartDto chartDto) {
+        return chartService.saveChart(chartDto);
+    }
 
-/*    @DeleteMapping
+    @PostMapping("/save-data")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveChartData(ChartDtoResponse chartDtoResponse) {
+        chartService.saveChartDataByType(chartDtoResponse);
+    }
+
+    @GetMapping("/{chartId}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteChart(long chartId) {
+    public void getChartInfoById(@PathVariable(value = "chartId") Long chartId) {
 
-    }*/
+    }
+
+    @GetMapping("/get-data/{chartId}")
+    public void getChartDataById(@PathVariable(value = "chartId") Long chartId,
+                                 @RequestParam(value = "type") String chartType) {
+
+    }
+
+
 
 }

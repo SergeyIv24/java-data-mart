@@ -1,12 +1,15 @@
 package datamartapp.services.implementation;
 
 import datamartapp.common.ChartType;
-import datamartapp.dto.chart.ChartDto;
-import datamartapp.dto.chart.LineChartDto;
-import datamartapp.dto.chart.TableChartDto;
+import datamartapp.dto.chart.*;
 import datamartapp.exceptions.ValidationException;
+import datamartapp.mappers.ChartMapper;
+import datamartapp.model.charts.Chart;
+import datamartapp.repositories.app.ChartRepository;
 import datamartapp.services.ChartService;
+import jakarta.transaction.NotSupportedException;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,19 @@ import java.util.List;
 public class ChartServiceImp implements ChartService {
 
     private final ChartDataMartServiceImp chartDataMartService;
+    private final ChartMapper chartMapper;
+    private final ChartRepository chartRepository;
+
+    @Override
+    public ChartDto getChartInfoById(Long chartId) {
+        return chartMapper.toChartDto(chartRepository.findById(chartId).get());
+    }
+
+    public ChartDtoResponse getChartDataById() {
+        return null;
+
+    }
+
 
     @Override
     public TableChartDto createTableChart(ChartDto chartDto, int limit, ChartType chartType, List<String> headers) {
@@ -33,6 +49,43 @@ public class ChartServiceImp implements ChartService {
         return prepareLineChart(chartDto, limit, xAxisColumn, yAxisColumn);
     }
 
+    @Override
+    public ChartDtoResponse saveChart(ChartDto chartDto) {
+        return chartMapper
+                .toChartDtoResponse(chartRepository
+                        .save(chartMapper.toChart(chartDto)));
+    }
+
+    @Override
+    public void saveChartDataByType(ChartDtoResponse chartDtoResponse) {
+        if (ChartType.valueOf(chartDtoResponse.getChartType()).equals(ChartType.TABLE_CHART)) {
+            saveTableChartDataInternal(chartDtoResponse);
+        }
+
+        if (ChartType.valueOf(chartDtoResponse.getChartType()).equals(ChartType.LINE_CHART)) {
+            saveLineChartDataInternal(chartDtoResponse);
+        }
+    }
+
+    private void saveTableChartDataInternal(ChartDtoResponse chartDtoResponse) {
+        TableChartDto tableChartDto = (TableChartDto) chartDtoResponse;
+        for (int i = 0; i < tableChartDto.getHeaders().size(); i++) {
+            saveTableDataForParticularHeader(tableChartDto.getChartId(),
+                    tableChartDto.getHeaders().get(i), tableChartDto.getData().get(i));
+        }
+    }
+
+    private void saveTableDataForParticularHeader(Long chartId, String header, List<String> data) {
+        for (String item : data) {
+            chartRepository.saveTableChartData(chartId, header, item);
+        }
+    }
+
+    private void saveLineChartDataInternal(ChartDtoResponse chartDtoResponse) {
+        LineChartDto lineChartDto = (LineChartDto) chartDtoResponse;
+    }
+
+
     private TableChartDto prepareTableChart(ChartDto chartDto, int limit, List<String> headers) {
         TableChartDto tableChartDto = new TableChartDto();
         tableChartDto.setChartName(chartDto.getName());
@@ -44,7 +97,6 @@ public class ChartServiceImp implements ChartService {
             log.warn("Something went wrong while preparing data");
             throw new ValidationException("Something went wrong while preparing data");
         }
-
         return tableChartDto;
     }
 
@@ -83,14 +135,14 @@ public class ChartServiceImp implements ChartService {
 
 
 
-/*    private ChartType validateChartType(String type) {
+    private ChartType validateChartType(String type) {
         try {
             return ChartType.valueOf(type);
         } catch (IllegalArgumentException e) {
             log.warn("");
             throw new ValidationException("");
         }
-    }*/
+    }
 
 
 }

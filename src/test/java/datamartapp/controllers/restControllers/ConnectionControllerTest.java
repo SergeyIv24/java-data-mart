@@ -1,4 +1,3 @@
-/*
 package datamartapp.controllers.restControllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -126,7 +125,7 @@ public class ConnectionControllerTest {
         when(connectionService.createConnection(connectionId1))
                 .thenReturn(connectionId1);
 
-        mvc.perform(post("/users/1/connections")
+        mvc.perform(post("/data-mart/connections")
                         .content(mapper.writeValueAsString(connectionId1))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON).characterEncoding(StandardCharsets.UTF_8))
@@ -143,7 +142,7 @@ public class ConnectionControllerTest {
 
     @Test
     void shouldNotAddConnectionFailedHost() throws Exception {
-        mvc.perform(post("/users/1/connections")
+        mvc.perform(post("/data-mart/connections")
                         .content(mapper.writeValueAsString(connectionFailedHost))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON)
@@ -304,4 +303,3 @@ public class ConnectionControllerTest {
                 .andExpect(status().isNotFound());
     }
 }
-*/

@@ -5,24 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/GeneralChartDataDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ChartMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ChartControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/connectionsControllerMvc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/connectionsControllerMvc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ConnectionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ConnectionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ConnectionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ConnectionMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/CsvParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/CsvParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDtoResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDtoResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapperUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ChartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ChartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/connections.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/connections.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temporalCsv/sales.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/temporalCsv/sales.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/temporalCsv/workers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/temporalCsv/workers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/Test1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ConnectionControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ConnectionControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/services/AdminServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/AdminServiceTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +49,10 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -76,6 +75,8 @@
     "JUnit.AdminControllerTest.executor": "Run",
     "JUnit.AdminServiceTests.executor": "Run",
     "JUnit.ConnectionControllerTest.executor": "Run",
+    "JUnit.ConnectionControllerTest.shouldAddConnection.executor": "Run",
+    "JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost.executor": "Run",
     "JUnit.HomeControllerTest.executor": "Debug",
     "JUnit.LoginControllerTest.executor": "Run",
     "Maven.data-mart-app [package].executor": "Run",
@@ -89,7 +90,7 @@
     "Spring Boot.DataMartApp.executor": "Run",
     "git-widget-placeholder": "charts",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/study/Java/tasks/Data mart/java-data-mart/src/main/java",
+    "last_opened_file_path": "C:/study/Java/tasks/Data mart/java-data-mart",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -165,32 +166,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HomeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConnectionControllerTest.shouldAddConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.HomeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.ConnectionControllerTest" />
+      <option name="METHOD_NAME" value="shouldAddConnection" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConnectionControllerTest.shouldNotAddConnectionFailedHost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.mvcControllers.*" />
+          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.mvcControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.mvcControllers.LoginControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.ConnectionControllerTest" />
+      <option name="METHOD_NAME" value="shouldNotAddConnectionFailedHost" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,11 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConnectionControllerTest.shouldAddConnection" />
+        <item itemvalue="JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost" />
         <item itemvalue="JUnit.AdminControllerTest" />
         <item itemvalue="JUnit.ConnectionControllerTest" />
         <item itemvalue="JUnit.AdminServiceTests" />
-        <item itemvalue="JUnit.LoginControllerTest" />
-        <item itemvalue="JUnit.HomeControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -229,12 +232,26 @@
       <option name="presentableId" value="Default" />
       <updated>1726038154099</updated>
       <workItem from="1731853956965" duration="5764000" />
-      <workItem from="1731862557485" duration="3997000" />
+      <workItem from="1731862557485" duration="4789000" />
+      <workItem from="1731868026954" duration="160000" />
+      <workItem from="1732104869709" duration="962000" />
+      <workItem from="1732361074631" duration="9038000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

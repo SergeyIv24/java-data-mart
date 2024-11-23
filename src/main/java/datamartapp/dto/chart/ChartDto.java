@@ -9,8 +9,10 @@ import lombok.Data;
 @AllArgsConstructor
 public class ChartDto {
 
+    private Long id;
+
     @NotNull(message = "User id must exist")
-    private Long userId;
+    private Long user;
 
     @NotBlank(message = "Name must exist")
     private String name;

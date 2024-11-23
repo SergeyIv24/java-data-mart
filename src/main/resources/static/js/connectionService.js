@@ -28,7 +28,6 @@ function handleDeleteConnection(connectionId) {
     );
 }
 
-
 const formEdit = document.getElementById('editConnection');
 function handleEditConnection(event) {
     event.preventDefault();
@@ -47,7 +46,6 @@ function handleEditConnection(event) {
         }
     );
 }
-
 
 function buildBody(form) {
     const jsonFormData = {};
