@@ -27,14 +27,14 @@ public class ChartServiceImp implements ChartService {
 
     @Override
     public ChartDto getChartInfoById(Long chartId) {
-        return chartMapper.toChartDto(chartRepository.findById(chartId).get());
+        //return chartMapper.toChartDto(chartRepository.findById(chartId).get());
+        return null;
     }
 
     public ChartDtoResponse getChartDataById() {
         return null;
 
     }
-
 
     @Override
     public TableChartDto createTableChart(ChartDto chartDto, int limit, ChartType chartType, List<String> headers) {
@@ -110,30 +110,6 @@ public class ChartServiceImp implements ChartService {
             throw new ValidationException("Got bad limit: " + limit);
         }
     }
-
-
-
-
-/*    @Override
-    public ChartDtoResponse createChart(ChartDto chartDtoRequest, int limit, String type) {
-        validateLimit(limit);
-        ChartType chartType = validateChartType(type);
-        return defineAndCreateChart(chartDtoRequest, limit, chartType);
-    }*/
-
-/*    private ChartDtoResponse defineAndCreateChart(ChartDto chartDto, int limit, ChartType chartType) {
-        if (chartType.equals(ChartType.TABLE_CHART)) {
-            return createTableChart(chartDto, limit);
-        }
-        if (chartType.equals(ChartType.LINE_CHART)) {
-            return createLineChart(chartDto, limit);
-        }
-        log.warn("");
-        throw new NotFoundException("");
-    }*/
-
-
-
 
     private ChartType validateChartType(String type) {
         try {

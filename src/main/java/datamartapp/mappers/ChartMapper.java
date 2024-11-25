@@ -20,7 +20,7 @@ public interface ChartMapper {
 
     ChartDtoResponse toChartDtoResponse(Chart chart);
 
-    ChartDto toChartDto(Chart chart);
+    //ChartDto toChartDto(Chart chart);
 
 
 

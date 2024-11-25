@@ -30,7 +30,7 @@ public class ChartDataMartServiceImp {
                 "FROM information_schema.columns " +
                 "WHERE table_schema = 'public' " +
                 "AND table_name = '%s' " +
-                "AND column_name IN (%s)", tableName, prepareHeaders(headers));
+                "AND column_name IN (%s)", tableName, prepareHeadersWithComas(headers));
 
         List<String> headersFromDb = jdbcTemplate.queryForList(getHeaders, String.class);
 
@@ -44,19 +44,19 @@ public class ChartDataMartServiceImp {
     }
 
     public List<List<String>> getDataByHeaders(List<String> headers, int limit, String tableName) throws SQLException {
-        String query = String.format("SELECT %s FROM %s LIMIT ?", prepareHeaders(headers), tableName);
+        String query = String.format("SELECT %s FROM %s LIMIT ?", prepareHeadersWithoutComas(headers), tableName);
         ResultSet resultSet;
         ResultSetMetaData resultSetMetaData;
         try (connectionToDataMart) {
-            PreparedStatement preparedStatement = connectionToDataMart.prepareStatement(query);
+            PreparedStatement preparedStatement = connectionToDataMart
+                    .prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             preparedStatement.setInt(1, limit);
+
             resultSet = preparedStatement.executeQuery();
             resultSetMetaData = resultSet.getMetaData();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
         List<List<String>> dataByHeaders = new ArrayList<>();
         int columnsCount = resultSetMetaData.getColumnCount();
         for (int i = 1; i <= columnsCount; i++ ) {
@@ -65,13 +65,21 @@ public class ChartDataMartServiceImp {
                 particularHeadersData.add(resultSet.getString(i));
             }
             dataByHeaders.add(particularHeadersData);
+            resultSet.beforeFirst();
         }
         return dataByHeaders;
     }
 
-    private String prepareHeaders(List<String> headers) {
-        return String.join(", ", headers);
+    private String prepareHeadersWithComas(List<String> headers) {
+        StringBuilder result = new StringBuilder();
+        for (String header : headers) {
+            result.append("'").append(header).append("'").append(",");
+        }
+        result.delete(result.length()-1, result.length());
+        return result.toString();
     }
 
-
+    private String prepareHeadersWithoutComas(List<String> headers) {
+        return String.join(", ", headers);
+    }
 }
