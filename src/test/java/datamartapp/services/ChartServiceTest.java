@@ -2,6 +2,7 @@ package datamartapp.services;
 
 import datamartapp.common.ChartType;
 import datamartapp.dto.chart.ChartDto;
+import datamartapp.dto.chart.ChartDtoResponse;
 import datamartapp.dto.chart.TableChartDto;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -45,6 +46,13 @@ public class ChartServiceTest {
         TableChartDto tableChartDto = chartService.createTableChart(chartDto, limit, ChartType.TABLE_CHART, headers);
         Assertions.assertFalse(tableChartDto.getData().isEmpty());
         Assertions.assertFalse(tableChartDto.getHeaders().isEmpty());
+    }
+
+    @Test
+    void shouldSaveTableChartInfo() {
+        ChartDtoResponse chartDtoResponse = chartService.saveChart(chartDto);
+        chartDtoResponse.toString();
+
     }
 
 

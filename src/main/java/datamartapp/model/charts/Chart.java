@@ -23,11 +23,14 @@ public class Chart {
     private String name;
 
     @NotBlank(message = "TableName must exist")
+    @Column(name = "table_name")
     private String tableName;
 
-    @NotBlank(message = "ChartType must exist")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "chart_type")
     private ChartType chartType;
 
     @NotNull(message = "Limit must exist")
+    @Column(name = "row_limit")
     private Integer limit;
 }

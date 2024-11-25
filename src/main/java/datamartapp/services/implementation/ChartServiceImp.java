@@ -5,16 +5,20 @@ import datamartapp.dto.chart.*;
 import datamartapp.exceptions.ValidationException;
 import datamartapp.mappers.ChartMapper;
 import datamartapp.model.charts.Chart;
+import datamartapp.model.users.User;
 import datamartapp.repositories.app.ChartRepository;
+import datamartapp.repositories.app.UserRepository;
 import datamartapp.services.ChartService;
 import jakarta.transaction.NotSupportedException;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.sql.model.internal.OptionalTableUpdate;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +28,7 @@ public class ChartServiceImp implements ChartService {
     private final ChartDataMartServiceImp chartDataMartService;
     private final ChartMapper chartMapper;
     private final ChartRepository chartRepository;
+    private final UserRepository userRepository;
 
     @Override
     public ChartDto getChartInfoById(Long chartId) {
@@ -51,9 +56,12 @@ public class ChartServiceImp implements ChartService {
 
     @Override
     public ChartDtoResponse saveChart(ChartDto chartDto) {
-        return chartMapper
-                .toChartDtoResponse(chartRepository
-                        .save(chartMapper.toChart(chartDto)));
+        Chart chart = chartMapper.toChart(chartDto);
+
+        Optional<User> user = userRepository.findById(chartDto.getUser());
+        chart.setUser(user.get());
+        chartRepository.save(chart);
+        return chartMapper.toChartDtoResponse(chart);
     }
 
     @Override

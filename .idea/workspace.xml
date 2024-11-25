@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c3708fcf-d022-4173-a142-1897871238d0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ChartMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ChartMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartDataMartServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartDataMartServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java" afterDir="false" />
     </list>
@@ -63,6 +62,7 @@
     "JUnit.AdminControllerTest.executor": "Run",
     "JUnit.AdminServiceTests.executor": "Run",
     "JUnit.ChartServiceTest.shouldCreateTableChart.executor": "Debug",
+    "JUnit.ChartServiceTest.shouldSaveTableChartInfo.executor": "Run",
     "JUnit.ConnectionControllerTest.executor": "Run",
     "JUnit.ConnectionControllerTest.shouldAddConnection.executor": "Run",
     "JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost.executor": "Run",
@@ -76,7 +76,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.DataMartApp.executor": "Debug",
+    "Spring Boot.DataMartApp.executor": "Run",
     "git-widget-placeholder": "charts",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/study/Java/tasks/Data mart/java-data-mart",
@@ -109,7 +109,7 @@
       <recent name="datamartapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ChartServiceTest.shouldCreateTableChart">
+  <component name="RunManager" selected="JUnit.ChartServiceTest.shouldSaveTableChartInfo">
     <configuration name="AdminControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
@@ -141,17 +141,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConnectionControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChartServiceTest.shouldSaveTableChartInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-mart-app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="datamartapp.controllers.restControllers.*" />
+          <option name="PATTERN" value="datamartapp.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="datamartapp.controllers.restControllers" />
-      <option name="MAIN_CLASS_NAME" value="datamartapp.controllers.restControllers.ConnectionControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="datamartapp.services" />
+      <option name="MAIN_CLASS_NAME" value="datamartapp.services.ChartServiceTest" />
+      <option name="METHOD_NAME" value="shouldSaveTableChartInfo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ChartServiceTest.shouldSaveTableChartInfo" />
         <item itemvalue="JUnit.ChartServiceTest.shouldCreateTableChart" />
         <item itemvalue="JUnit.ConnectionControllerTest.shouldAddConnection" />
         <item itemvalue="JUnit.ConnectionControllerTest.shouldNotAddConnectionFailedHost" />
         <item itemvalue="JUnit.AdminControllerTest" />
-        <item itemvalue="JUnit.ConnectionControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +227,7 @@
       <workItem from="1731868026954" duration="160000" />
       <workItem from="1732104869709" duration="962000" />
       <workItem from="1732361074631" duration="10431000" />
-      <workItem from="1732550418506" duration="7921000" />
+      <workItem from="1732550418506" duration="10015000" />
     </task>
     <servers />
   </component>
@@ -348,24 +349,44 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
-          <line>41</line>
+          <line>46</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartDataMartServiceImp.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
           <line>58</line>
-          <option name="timeStamp" value="107" />
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
