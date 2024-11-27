@@ -35,7 +35,7 @@ public class DatasetsController {
         datasetsService.deleteDataset(datasetId);
     }
 
-    @GetMapping
+    @GetMapping("/item")
     @ResponseStatus(HttpStatus.OK)
     public List<DatasetDtoResponse> getDatasets(@RequestParam(value = "from", defaultValue = "0") int from,
                                                 @RequestParam(value = "sort", defaultValue = "ASC") String sort) {

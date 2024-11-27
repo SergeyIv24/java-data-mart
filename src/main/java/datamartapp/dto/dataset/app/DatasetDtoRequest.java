@@ -12,10 +12,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class DatasetDtoRequest {
 
-    @NotNull(message = "UserId must not be null")
     private Long user;
 
-    @NotNull(message = "Connection must not be null")
     private Long connection;
 
     @NotBlank(message = "Scheme must not be null")

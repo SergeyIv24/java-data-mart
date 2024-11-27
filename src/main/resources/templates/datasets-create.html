@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Form</title>
+    <link th:href="@{/css/datasetst-create-style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<header>
+    <div class="logo">Datamart</div>
+    <nav class="nav">
+        <a href="#">Dashboards</a>
+        <a href="#">Charts</a>
+        <a th:href="@{/data-mart/datasets}">Datasets</a>
+        <a th:href="@{/data-mart/connections}">Connections</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
+
+<main>
+    <h1>Dataset Form</h1>
+    <div class="form-container">
+        <form class="newDataset" id="adddataset">
+            <div class="form-group">
+                <label for="database">Database</label>
+                <select id="database" name="database">
+                    <option value="postgresql">PostgreSQL</option>
+                    <option value="mysql">MySQL</option>
+                    <option value="sqlite">SQLite</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="scheme">scheme</label>
+                <input type="text" id="scheme" name="scheme" placeholder="Enter schema">
+            </div>
+            <div class="form-group">
+                <label for="tableName">Table</label>
+                <input type="text" id="tableName" name="tableName" placeholder="Enter table name">
+            </div>
+            <div class="form-group">
+                <label for="Connection">Connection id</label>
+                <input type="text" id="Connection" name="Connection" placeholder="Enter datatype">
+            </div>
+            <button class="save" type="submit" onclick="handleAddDataset">Create</button>
+        </form>
+    </div>
+    <script th:src="@{/js/datasetsService.js}"></script>
+
+</main>
+</body>
+</html>

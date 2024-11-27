@@ -17,12 +17,6 @@ public class DatasetDtoResponse {
 
     private Long id;
 
-/*    @NotNull(message = "User must not be null")
-    private User user;
-
-    @NotNull(message = "Connection must not be null")
-    private Connection connection;*/
-
     @NotBlank(message = "empty scheme")
     private String scheme;
 
