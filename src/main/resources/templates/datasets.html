@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasets</title>
+    <link th:href="@{/css/datasets-style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<header>
+    <div class="logo">Datamart</div>
+    <nav class="nav">
+        <a href="#">Dashboard</a>
+        <a th:href="@{/data-mart/connections}">Connections</a>
+        <a href="#">Charts</a> <!--h:href="@{/data-mart/charts}"-->
+        <a href="#">SQL</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
+
+<main>
+    <div class="datasets-header">
+        <h1>Datasets</h1>
+        <form th:action="@{/data-mart/datasets/cr}">
+            <button>+ Dataset</button>
+        </form>
+
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Schema</th>
+                <th>TableName</th>
+                <th>Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="sets : ${datasetsList}">
+                <td th:text="${sets.scheme}"></td>
+                <td th:text="${sets.tableName}"></td>
+                <td th:text="${sets.created}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span>1-6 of 6</span>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

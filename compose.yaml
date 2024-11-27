@@ -1,0 +1,35 @@
+services:
+  app-db:
+    image: postgres:16.1
+    container_name: data-mart-app-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/data-mart-app-db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=dataMartApp
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=12345
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 5s
+      retries: 10
+      
+  datamart-db:
+    image: postgres:16.1
+    container_name: datamart-db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./volumes/datamart-db:/var/lib/postgresql/data
+      - ./src/main/resources/temporalCsv:/var/lib/postgresql/data/csv
+    environment:
+      - POSTGRES_DB=datamart
+      - POSTGRES_USER=dbMartuser
+      - POSTGRES_PASSWORD=12345
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 5s
+      retries: 10

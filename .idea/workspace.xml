@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c501d01c-ee11-4075-bc18-f9280ee34115" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_09_2024_9_19_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_09_2024_9_19_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_09_2024_9_19__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_09_2024_16_29__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Er-diagramm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lombok.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/DataMartApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/common/ChartType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/common/GeneralConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/AppDatabaseConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/DatamartDbConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/GeneralConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/ExceptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/DatasetsControllerMvc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/HomeControllerMvc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/adminControllerMvc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/mvcControllers/connectionsControllerMvc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/AdminUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ChartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/ConnectionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/DatasetsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/controllers/restControllers/SqlQueriesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ConnectionDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ConnectionUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/SqlQueryDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/ViewDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/ChartDtoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/GeneralChartDataDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/LineChartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/chart/TableChartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/dataset/app/DatasetDtoUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoUpdate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/dto/user/UserDtoWithoutPass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/exceptions/ConflictException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/exceptions/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/exceptions/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ChartMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/ConnectionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/DatasetMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/mappers/UserMapperUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/Dataset.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/SqlQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/Chart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/LineChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/charts/TableChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/model/users/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ChartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ConnectionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/DatasetsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/SqlQueriesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/app/ViewsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/repositories/datamart/DatasetsInDataMartRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ChartService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ConnectionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/DatasetsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/SqlQueriesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/UserAdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/ViewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartDataMartServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ChartServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/ConnectionServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/CsvParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DataMartServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/DatasetsServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/SupportedDatabases.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/SupportedRoles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/UserAdminServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/datamartapp/services/implementation/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/temporalCsv/sales.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/temporalCsv/workers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/datamartDb.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/adminUsersStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/connections-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/datasets-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/datasetst-create-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/index-admin-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/index-user-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/loginStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/adminUserScripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/connectionService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/datasetsService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/userService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/connections.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/datasets-create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/datasets.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index-admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index-user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/Test1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/HomeControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/mvcControllers/LoginControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/AdminControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ChartControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/controllers/restControllers/ConnectionControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/AdminServiceTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/services/ChartServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/datamartapp/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2pROwu5YNjnOHz8lkAOsJ2fFncs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c501d01c-ee11-4075-bc18-f9280ee34115" name="Changes" comment="" />
+      <created>1732725666768</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732725666768</updated>
+      <workItem from="1732725668898" duration="71000" />
+      <workItem from="1732725751119" duration="67000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.ProcessBuilder" memberName="command" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

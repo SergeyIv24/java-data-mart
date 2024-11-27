@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connections</title>
+    <link th:href="@{/css/connections-style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<header>
+    <div class="logo">Data mart App</div>
+    <nav class="nav">
+        <a href="#">Dashboards</a>
+        <a href="#">Charts</a>
+        <a th:href="@{/data-mart/datasets}">Datasets</a>
+        <a href="#">SQL</a>
+    </nav>
+    <button class="logout-btn">Log out</button>
+</header>
+
+<main>
+    <button class="create-button" onclick="openCreateModal()">Create</button>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Host</th>
+                    <th>Port</th>
+                    <th>User</th>
+                    <th>Database name</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="con : ${connectionsList}">
+                    <td th:text="${con.displayName}"></td>
+                    <td th:text="${con.dbType}"></td>
+                    <td th:text="${con.host}"></td>
+                    <td th:text="${con.port}"></td>
+                    <td th:text="${con.dbUser}"></td>
+                    <td th:text="${con.dbName}"></td>
+                    <td th:text="${con.created}"></td>
+                    <td class="actions">
+                        <button id="updater" th:data-name="${con.id}" onclick="openEditModal()">✏️</button>
+                        <button th:onclick="handleDeleteConnection([[${con.id}]])">🗑️</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span>1-1 of 1</span>
+        </div>
+    </div>
+</main>
+
+<div class="modal" id="editModal">
+    <div class="modal-content">
+        <h2>Edit Connection</h2>
+        <form id="editConnection">
+            <label>Host:</label>
+            <input name="host" type="text" id="editDbHost">
+            <label>Port:</label>
+            <input name="port" type="text" id="editDbPort">
+            <label>Database name:</label>
+            <input name="dbName" type="text" id="editDbName">
+            <label>Database user:</label>
+            <input name="dbUser" type="text" id="editDbUser">
+            <label>Database password:</label>
+            <input name="dbPassword" type="password" id="editDbPassword">
+            <label>Display name:</label>
+            <input name="displayName" type="text" id="editDisplayName">
+            <label>Database type:</label>
+            <input name="dbType" type="text" id="editDbType">
+        </form>
+
+        
+        <div style="display: flex; justify-content: flex-end;">
+            <button class="close-modal" onclick="closeEditModal()">Cancel</button>
+            <button class="save-modal" onclick="handleEditConnection(event)">Save</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="createModal">
+    <div class="modal-content">
+        <h2>Create Connection</h2>
+        <form class="newConnection" id="addConnection">
+            <label for="createDbHost">Host:</label>
+            <input name="host" id="createDbHost" type="text">
+            <label for="createDbPort">Port:</label>
+            <input name="port" type="number" id="createDbPort">
+            <label for="createDbName">Database name:</label>
+            <input name="dbName" type="text" id="createDbName">
+            <label for="createDbUser">Database user:</label>
+            <input name="dbUser" type="text" id="createDbUser">
+            <label for="createDbPassword">Database password:</label>
+            <input name="dbPassword" type="password" id="createDbPassword">
+            <label for="createDisplayName">Display name:</label>
+            <input name="displayName" type="text" id="createDisplayName">
+            <label for="createDbType">Database type:</label>
+            <input name="dbType" type="text" id="createDbType">
+            <div style="display: flex; justify-content: flex-end;">
+                <button class="close-modal" onclick="closeCreateModal()">Cancel</button>
+                <button class="save-modal" type="submit" onclick="handleAddConnection">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/connectionService.js}"></script>
+<script>
+    function openCreateModal() {
+            document.getElementById('createModal').style.display = 'flex';
+        }
+        function closeCreateModal() {
+        document.getElementById('createModal').style.display = 'none';
+    }
+    function openEditModal() {
+        document.getElementById('editModal').style.display = 'flex';
+    }
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+</script>
+
+</body>
+</html>
